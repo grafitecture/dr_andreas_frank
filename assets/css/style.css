@@ -169,9 +169,7 @@ ul { padding: 0; margin: 0; list-style: none; }
 .sum-word { position: relative; display: inline-block; font-weight: 500; letter-spacing: -0.03em; }
 .sum-word::after { content: ""; position: absolute; left: 0; right: .08em; bottom: -.1em; height: .16em; border-top: .045em solid var(--ruby); border-bottom: .045em solid var(--ruby); transform-origin: left center; }
 
-.hero__intro .lead { margin-bottom: 1.25rem; }
-.hero__since { display: flex; align-items: center; gap: .6rem; color: var(--ink-soft); font-size: .9375rem; margin-bottom: 1.5rem; }
-.hero__since::before { content: ""; width: 2rem; height: 1px; background: var(--ink-soft); }
+.hero__intro .lead { margin-bottom: 2rem; }
 
 .hero__figure { position: relative; margin: 0; }
 .hero__figure img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 15%; border-radius: var(--radius-l); background: var(--slate-soft); }
