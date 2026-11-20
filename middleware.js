@@ -133,5 +133,5 @@ export default async function middleware(request) {
     return new Response('Bitte zuerst anmelden.', { status: 401, headers: { 'Content-Type': 'text/plain; charset=utf-8', ...SECURITY } });
   }
 
-  return html(request.method === 'HEAD' ? null : page(false), 401);
+  return html(request.method === 'HEAD' ? null : page(false), 200);
 }
