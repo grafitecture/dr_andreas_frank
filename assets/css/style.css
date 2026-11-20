@@ -9,6 +9,7 @@
 @font-face { font-family: "Fira Sans"; src: url("../fonts/FiraSans-Regular.woff") format("woff"); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: "Fira Sans"; src: url("../fonts/FiraSans-Medium.woff") format("woff"); font-weight: 500; font-style: normal; font-display: swap; }
 @font-face { font-family: "Fira Sans"; src: url("../fonts/FiraSans-SemiBold.woff") format("woff"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Fira Sans"; src: url("../fonts/FiraSans-Black.woff") format("woff"); font-weight: 900; font-style: normal; font-display: swap; }
 
 /* ---------- Tokens ---------- */
 :root {
@@ -260,14 +261,10 @@ ul { padding: 0; margin: 0; list-style: none; }
 .move { background: var(--sky); }
 .move__grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
 .move h2 { margin-bottom: 1.75rem; }
-.move__route { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: center; margin-top: 2.5rem; }
-.address-tag { background: var(--snow); border-radius: var(--radius-m); padding: 1.25rem 1.35rem; }
-.address-tag span { display: block; font-size: var(--fs-small); color: var(--ink-soft); margin-bottom: .35rem; }
-.address-tag strong { display: block; font-weight: 500; font-size: 1.0625rem; line-height: 1.35; }
-.address-tag--new { background: var(--ink); color: var(--snow); }
-.address-tag--new span { color: var(--slate); }
-.move__arrow { width: 3rem; color: var(--ink); }
-.move__art { max-width: 30rem; justify-self: center; width: 100%; }
+.move__address { margin: 0; max-width: none; display: grid; gap: .75rem; justify-self: end; }
+.move__when { font-size: var(--fs-h6); font-weight: 500; }
+.move__street { display: grid; font-size: clamp(2.6rem, 1.2rem + 5.2vw, 6.2rem); font-weight: 900; font-style: normal; letter-spacing: .02em; line-height: .95; }
+.move__city { font-size: var(--fs-h5); font-weight: 400; }
 
 /* ---------- Karriere ---------- */
 .career { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
@@ -416,6 +413,7 @@ mark.todo { background: #FFF1B8; color: var(--ink); padding: 0 .2em; border-radi
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 3rem; }
 }
 @media (max-width: 960px) {
+  .move__address { justify-self: start; }
   .hero__grid, .personal, .move__grid, .career, .contact__grid, .method__media { grid-template-columns: 1fr; }
   .hero__figure { max-width: 30rem; margin-left: auto; }
   .services { grid-template-columns: 1fr; }
@@ -434,8 +432,6 @@ mark.todo { background: #FFF1B8; color: var(--ink); padding: 0 .2em; border-radi
   .t-account__side + .t-account__side { border-left: 0; border-top: 3px solid var(--ink); }
   .team { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
-  .move__route { grid-template-columns: 1fr; }
-  .move__arrow { transform: rotate(90deg); justify-self: center; }
   .field-row { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr; }
   .team-photo img { aspect-ratio: 4 / 3; }
