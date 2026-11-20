@@ -49,11 +49,17 @@
   --ease: cubic-bezier(.2,.7,.2,1);
   --brand-fs: clamp(1.75rem, -0.6rem + 4vw, 3.25rem);  /* Wortmarke in Kopf- und Fußzeile gleich groß */
   --brand-x: min(40px, var(--gutter));  /* Wortmarke: 40 px vom linken Rand, außerhalb des Rasters */
+  /* Kopfzeile: volle Höhe oben, beim Scrollen schrumpft die Wortmarke auf den Anteil --k */
+  --hpad: clamp(.875rem, .5rem + 1vw, 1.375rem);
+  --hpad-end: .625rem;
+  --k: .75;
+  --header-full: calc(2.12 * var(--brand-fs) + 2 * var(--hpad));
+  --header-end: calc(2.12 * var(--brand-fs) * var(--k) + 2 * var(--hpad-end));
 }
 
 /* ---------- Basis ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 7rem; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--header-end) + 1.5rem); }
 body {
   margin: 0;
   font-family: "Fira Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -120,8 +126,12 @@ ul { padding: 0; margin: 0; list-style: none; }
 .icon { width: 1.5rem; height: 1.5rem; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ---------- Kopfzeile ---------- */
+@media (min-width: 901px) { :root { --k: .62; } }
+@media (min-width: 1280px) { :root { --k: .5; } }
+body { padding-top: var(--header-full); }
 .site-header {
-  position: sticky; top: 0; z-index: 50;
+  --p: 0;  /* Scrollfortschritt 0…1, gesetzt in main.js */
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
   background: color-mix(in srgb, var(--snow) 92%, transparent);
   -webkit-backdrop-filter: saturate(1.4) blur(10px); backdrop-filter: saturate(1.4) blur(10px);
   border-bottom: 1px solid transparent;
@@ -130,11 +140,15 @@ ul { padding: 0; margin: 0; list-style: none; }
 .site-header.is-scrolled { border-bottom-color: var(--slate); }
 /* Wortmarke aus dem Raster genommen: links 40 px vom Rand, Navigation bleibt rechts im Raster */
 .site-header__bar {
-  display: flex; align-items: center; gap: 1.5rem; padding-block: clamp(.875rem, .5rem + 1vw, 1.375rem);
+  display: flex; align-items: center; gap: 1.5rem;
+  height: calc(var(--header-full) - var(--p) * (var(--header-full) - var(--header-end)));
   padding-left: var(--brand-x);
   padding-right: max(var(--gutter), (100% - var(--maxw)) / 2);
 }
-.brand { display: inline-flex; flex-direction: column; text-decoration: none; flex: none; line-height: 1; }
+.brand {
+  display: inline-flex; flex-direction: column; text-decoration: none; flex: none; line-height: 1;
+  transform: scale(calc(1 - var(--p) * (1 - var(--k)))); transform-origin: left center;
+}
 /* Wortmarke: „Dr. Andreas Frank“ und „Steuerberatung“ in gleicher Größe, zwei Zeilen */
 .brand__name, .brand__sub, .footer__name, .footer__sub { display: block; font-size: var(--brand-fs); font-weight: 300; letter-spacing: -0.02em; line-height: 1.06; white-space: nowrap; }
 .brand__name, .brand__sub { color: var(--ruby); }
@@ -396,6 +410,7 @@ fieldset.field legend { padding: 0; margin-bottom: .5rem; }
 .legal li { padding-left: 1.25rem; position: relative; margin-bottom: .4rem; }
 .legal li::before { content: ""; position: absolute; left: 0; top: .75em; width: .5rem; height: 2px; background: var(--air); }
 .legal address { font-style: normal; margin-bottom: 1em; }
+.legal__credit { margin-top: clamp(3rem, 6vw, 4.5rem); padding-top: 1.25rem; border-top: 1px solid var(--slate); font-size: .9375rem; color: var(--ink-soft); }
 mark.todo { background: #FFF1B8; color: var(--ink); padding: 0 .2em; border-radius: 3px; }
 
 /* ---------- Responsiv ---------- */

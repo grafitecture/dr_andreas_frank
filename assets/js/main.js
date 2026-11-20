@@ -2,12 +2,21 @@
 (function () {
   'use strict';
 
-  /* Kopfzeile: Linie beim Scrollen */
+  /* Kopfzeile: Wortmarke schrumpft beim Scrollen auf ihre Endgröße, Linie erscheint */
   var header = document.querySelector('[data-header]');
   if (header) {
-    var onScroll = function () { header.classList.toggle('is-scrolled', window.scrollY > 8); };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
+    var RANGE = 140;  /* Scrollweg in px, bis die Endgröße erreicht ist */
+    var ticking = false;
+    var update = function () {
+      ticking = false;
+      var y = window.scrollY;
+      header.style.setProperty('--p', Math.min(1, Math.max(0, y / RANGE)).toFixed(3));
+      header.classList.toggle('is-scrolled', y > 8);
+    };
+    update();
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+    }, { passive: true });
   }
 
   /* Mobile Navigation */
