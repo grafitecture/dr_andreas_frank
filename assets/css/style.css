@@ -345,6 +345,9 @@ fieldset.field legend { padding: 0; margin-bottom: .5rem; }
   .action-bar .btn { min-height: 3rem; padding: .6rem 1rem; }
   .action-bar .btn--light { background: transparent; color: var(--snow); }
   body { padding-bottom: 5.5rem; }
+  /* Mobil übernimmt die Leiste unten Termin und Anruf – im Hero keine Buttons */
+  .hero .btn-row { display: none; }
+  .hero__intro .lead { margin-bottom: 0; }
 }
 
 /* ---------- Unterseiten (FAQ, Rechtliches) ---------- */
