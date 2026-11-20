@@ -48,7 +48,7 @@
 
   --rule: 0.22em;   /* Stärke der Summenlinie, relativ zur Schrift */
   --ease: cubic-bezier(.2,.7,.2,1);
-  --logo-h: clamp(2.75rem, 1.9rem + 2.4vw, 4rem);  /* Logo in Kopf- und Fußzeile gleich groß */
+  --logo-h: clamp(2.5rem, 1.95rem + 1.6vw, 3.375rem);  /* Logo in Kopf- und Fußzeile gleich groß */
 }
 
 /* ---------- Basis ---------- */
