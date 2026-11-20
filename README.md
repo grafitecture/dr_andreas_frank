@@ -8,7 +8,7 @@ Signatur ist die **doppelte Unterstreichung** (in der Buchhaltung: die Endsumme)
 
 | Datei | URL auf Vercel | Inhalt |
 |---|---|---|
-| `index.html` | `/` | Startseite: Hero als Rechnung, Leistungen, T-Konto, Arbeitsweise (KI + Mensch), Ablauf, Team, Umzug, Karriere, Kontakt |
+| `index.html` | `/` | Startseite: Headline „Belege, Fristen, Fragen? Wir sorgen für Ruhe.“, Leistungen, T-Konto, Arbeitsweise (KI + Mensch), Ablauf, Team, Umzug, Karriere, Kontakt |
 | `faq.html` | `/faq` | Häufige Fragen, Stand 20.11.2026, mit Steuer-Spickzettel 2026/2027 und FAQ-Schema (JSON-LD) |
 | `impressum.html` | `/impressum` | Impressum nach § 5 DDG inkl. berufsrechtlicher Angaben |
 | `datenschutz.html` | `/datenschutz` | Datenschutzerklärung für Hosting bei Vercel |

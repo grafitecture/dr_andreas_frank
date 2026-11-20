@@ -165,13 +165,9 @@ ul { padding: 0; margin: 0; list-style: none; }
 .hero { padding-block: clamp(2rem, 0.25rem + 4vw, 4.5rem) calc(var(--section) * .55); }
 .hero__grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
 
-.equation { position: relative; display: grid; grid-template-columns: 0.9em max-content; justify-content: start; align-items: baseline; font-size: clamp(3.25rem, 2.4633rem + 3.4963vw, 5.61rem); font-weight: 300; line-height: 1.02; letter-spacing: -0.025em; margin: 0 0 clamp(1.5rem, 3vw, 2.75rem); }
-.equation__line { display: contents; }
-.equation__op { color: var(--air); font-weight: 300; }
-.equation__term { display: block; }
-.equation__sum { display: contents; }
-.equation__sum .sum-rule { grid-column: 2; width: calc(100% + 0.15em); --rule: 0.055em; margin: .2em 0 .18em; transform-origin: left center; }
-.equation__result .equation__term { font-weight: 500; letter-spacing: -0.03em; }
+.hero__title { font-size: var(--fs-h1); font-weight: 300; line-height: 1.04; letter-spacing: -0.025em; max-width: 11.5ch; margin: 0 0 clamp(1.5rem, 3vw, 2.5rem); text-wrap: balance; }
+.sum-word { position: relative; display: inline-block; font-weight: 500; letter-spacing: -0.03em; }
+.sum-word::after { content: ""; position: absolute; left: 0; right: .08em; bottom: -.1em; height: .16em; border-top: .045em solid var(--ruby); border-bottom: .045em solid var(--ruby); transform-origin: left center; }
 
 .hero__intro .lead { margin-bottom: 1.25rem; }
 .hero__since { display: flex; align-items: center; gap: .6rem; color: var(--ink-soft); font-size: .9375rem; margin-bottom: 1.5rem; }
@@ -451,14 +447,10 @@ mark.todo { background: #FFF1B8; color: var(--ink); padding: 0 .2em; border-radi
 
 /* ---------- Der eine Moment: Die Rechnung geht auf ---------- */
 @media (prefers-reduced-motion: no-preference) {
-  .js .equation__line > * { opacity: 0; transform: translateY(.18em); animation: eq-in .7s var(--ease) forwards; }
-  .js .equation__line:nth-child(1) > * { animation-delay: .1s; }
-  .js .equation__line:nth-child(2) > * { animation-delay: .35s; }
-  .js .equation__line:nth-child(3) > * { animation-delay: .6s; }
-  .js .equation__sum .sum-rule { transform: scaleX(0); animation: rule-in .8s var(--ease) .95s forwards; }
-  .js .equation__result > * { animation-delay: 1.55s; }
+  .js .hero__title { animation: eq-in .8s var(--ease) both; }
+  .js .sum-word::after { transform: scaleX(0); animation: rule-in .8s var(--ease) .7s forwards; }
 }
-@keyframes eq-in { to { opacity: 1; transform: none; } }
+@keyframes eq-in { from { opacity: 0; transform: translateY(.15em); } to { opacity: 1; transform: none; } }
 @keyframes rule-in { to { transform: scaleX(1); } }
 
 @media (prefers-reduced-motion: reduce) {
