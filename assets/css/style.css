@@ -142,21 +142,12 @@ ul { padding: 0; margin: 0; list-style: none; }
 .nav ul { display: flex; gap: clamp(1rem, 2vw, 2rem); }
 .nav a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: .9375rem; padding-block: .5rem; background-image: linear-gradient(var(--ruby), var(--ruby)); background-size: 0 2px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .25s var(--ease); }
 .nav a:hover, .nav a[aria-current="page"] { background-size: 100% 2px; }
-.header-actions { display: flex; align-items: center; gap: .75rem; }
-.header-phone { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-height: 2.75rem; min-width: 2.75rem; padding: .6rem 1.1rem; border: 1.5px solid var(--ruby); border-radius: 999px; color: var(--ruby); text-decoration: none; font-weight: 500; font-size: .9375rem; font-variant-numeric: tabular-nums; white-space: nowrap; transition: background-color .2s var(--ease), color .2s var(--ease); }
-.header-phone:hover { background: var(--ruby); color: var(--snow); }
-.header-phone .icon { width: 1.15rem; height: 1.15rem; }
-.header-actions .btn { min-height: 2.75rem; padding: .6rem 1.15rem; font-size: .9375rem; }
 .nav-toggle { display: none; margin-left: auto; width: 3rem; height: 3rem; border: 0; background: transparent; color: var(--ink); cursor: pointer; border-radius: 50%; }
 .nav-toggle svg { width: 1.75rem; height: 1.75rem; margin: auto; }
 
-@media (max-width: 1080px) {
-  .header-phone span { display: none; }
-  .header-phone { padding: .6rem; }
-}
 @media (max-width: 900px) {
   .nav-toggle { display: grid; }
-  .nav, .header-actions { display: none; }
+  .nav { display: none; }
   .site-header.nav-open .nav {
     display: block; position: absolute; inset: 100% 0 auto 0; background: var(--snow);
     border-bottom: 1px solid var(--slate); padding: 1rem var(--brand-x) 2rem;
