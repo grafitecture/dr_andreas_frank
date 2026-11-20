@@ -71,6 +71,13 @@ Weitere Elemente: Textmarker auf „Ruhe.“, Leistungen ohne Zeichen in drei b�
 **Handlungsfarben:** Call to Action überall Ruby (Hover Ruby dunkel). Daneben das Telefon als Linien-Button mit Rand und Schrift in Ruby, beim Überfahren gefüllt; auf dunklem Grund (FAQ-Band) bleibt er weiß. „Ruhe.“ im Hero ist knallgelb markiert (`--marker: #FFE600`), sonst kommt Gelb nirgends vor.
 
 
+
+## Zugangsschutz (Entwurf)
+
+Vor der ganzen Website liegt eine Anmeldeseite (`middleware.js`, Vercel Routing Middleware). Das Passwort steht nicht im Code, sondern in der Vercel-Umgebungsvariable `SITE_PASSWORD` (Production und Preview, Typ „sensitive“). Nach der Anmeldung gilt der Zugang 30 Tage (Cookie `drf_zugang`, HttpOnly); `/abmelden` meldet ab. Frei bleiben nur CSS, Schriften, Favicon und robots.txt, die die Anmeldeseite selbst braucht. Ein neues Passwort in Vercel setzen und neu deployen – alte Anmeldungen verfallen dann automatisch.
+
+Beim Livegang: `middleware.js` löschen und `SITE_PASSWORD` in Vercel entfernen.
+
 ## Grafitecture-Feld
 
 Ganz unten in Impressum und Datenschutz steht das Grafitecture-Feld (Lime-Fläche mit Logo, „Marken mit KI.“, Link auf https://www.grafitecture.de/ in neuem Fenster). Quelle ist das Kit `kit/grafitecture-credit/` (v1.2, Original in `grafitecture/lannee_webseite`): Markup = Inhalt von `snippet.de.html`, CSS = letzter Block in `assets/css/style.css`, beides unverändert. Farben und Größe gehören der Agentur und werden nicht an das Designsystem angepasst. Der Ordner `kit/` wird über `.vercelignore` nicht ausgeliefert. Änderungen nur im Kit machen und neu kopieren.

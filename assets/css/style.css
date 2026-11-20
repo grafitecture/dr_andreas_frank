@@ -297,7 +297,7 @@ a.contact-line:hover strong { color: var(--ruby); }
 .field { display: grid; gap: .4rem; margin-bottom: 1.1rem; }
 .field label, .field legend { font-weight: 500; font-size: .9375rem; }
 .field .opt { font-weight: 400; color: var(--ink-soft); }
-.field input[type="text"], .field input[type="email"], .field input[type="tel"], .field textarea {
+.field input[type="text"], .field input[type="email"], .field input[type="tel"], .field input[type="password"], .field textarea {
   width: 100%; font: inherit; color: var(--ink); background: var(--white);
   border: 1.5px solid var(--slate); border-radius: var(--radius-s); padding: .8rem .9rem; min-height: 3rem;
   transition: border-color .2s var(--ease);
@@ -472,6 +472,15 @@ ol.steps { list-style: none; padding: 0; margin: 0; }
   .cheatsheet th, .cheatsheet td { padding: .7rem .3rem; }
   .cheatsheet td.v { white-space: normal; }
 }
+
+/* ---------- Zugangsschutz für den Entwurf (Anmeldeseite aus middleware.js) ---------- */
+.gate-page { padding: 0; min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; }
+.gate { width: min(100% - 2 * var(--gutter), 26rem); padding-block: 3rem; }
+.gate__brand { display: grid; margin: 0 0 clamp(2.5rem, 6vw, 4rem); max-width: none; }
+.gate__title { font-size: var(--fs-h3); font-weight: 300; letter-spacing: -0.02em; margin: 0 0 1rem; }
+.gate__text { color: var(--ink-soft); margin: 0 0 2rem; }
+.gate__error { color: var(--ruby); font-weight: 500; margin: 0 0 1.25rem; }
+.gate__form .btn { width: 100%; margin-top: .5rem; }
 
 /* ==========================================================================
    Grafitecture-Feld (ganz unten in Impressum und Datenschutz)
