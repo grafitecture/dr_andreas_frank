@@ -109,10 +109,11 @@ ul { padding: 0; margin: 0; list-style: none; }
   transition: background-color .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
 }
 .btn svg { width: 1.15em; height: 1.15em; flex: none; }
-.btn--primary { background: var(--sky); color: var(--ink); }
-.btn--primary:hover { background: var(--ruby); color: var(--snow); }
-.btn--ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
-.btn--ghost:hover { background: var(--ink); color: var(--snow); }
+.btn--primary { background: var(--ruby); color: var(--snow); }
+.btn--primary:hover { background: var(--ruby-deep); color: var(--snow); }
+/* Telefon & Co. neben dem Call to Action: Linie und Schrift in Ruby */
+.btn--ghost { background: transparent; color: var(--ruby); border-color: var(--ruby); }
+.btn--ghost:hover { background: var(--ruby); color: var(--snow); }
 .btn--light { background: var(--snow); color: var(--ink); }
 .btn--light:hover { background: var(--white); color: var(--ink); }
 .btn-row { display: flex; flex-wrap: wrap; gap: .75rem; }
@@ -143,14 +144,16 @@ ul { padding: 0; margin: 0; list-style: none; }
 .nav a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: .9375rem; padding-block: .5rem; background-image: linear-gradient(var(--ruby), var(--ruby)); background-size: 0 2px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .25s var(--ease); }
 .nav a:hover, .nav a[aria-current="page"] { background-size: 100% 2px; }
 .header-actions { display: flex; align-items: center; gap: .75rem; }
-.header-phone { display: inline-flex; align-items: center; gap: .45rem; color: var(--ink); text-decoration: none; font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.header-phone .icon { width: 1.15rem; height: 1.15rem; color: var(--air); }
+.header-phone { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-height: 2.75rem; min-width: 2.75rem; padding: .6rem 1.1rem; border: 1.5px solid var(--ruby); border-radius: 999px; color: var(--ruby); text-decoration: none; font-weight: 500; font-size: .9375rem; font-variant-numeric: tabular-nums; white-space: nowrap; transition: background-color .2s var(--ease), color .2s var(--ease); }
+.header-phone:hover { background: var(--ruby); color: var(--snow); }
+.header-phone .icon { width: 1.15rem; height: 1.15rem; }
 .header-actions .btn { min-height: 2.75rem; padding: .6rem 1.15rem; font-size: .9375rem; }
 .nav-toggle { display: none; margin-left: auto; width: 3rem; height: 3rem; border: 0; background: transparent; color: var(--ink); cursor: pointer; border-radius: 50%; }
 .nav-toggle svg { width: 1.75rem; height: 1.75rem; margin: auto; }
 
 @media (max-width: 1080px) {
   .header-phone span { display: none; }
+  .header-phone { padding: .6rem; }
 }
 @media (max-width: 900px) {
   .nav-toggle { display: grid; }

@@ -68,7 +68,7 @@ Weitere Elemente: Textmarker auf „Ruhe.“, Umzugs-Abschnitt mit der neuen Adr
 
 **Logo:** Typografische Wortmarke „Dr. Andreas Frank“ in Ruby (Fira Sans Light), darunter „Steuerberatung“ ebenfalls in Ruby (Regular, 0,36 × Namensgröße). Auf der Website steht sie 40 px vom linken Rand, bewusst außerhalb des Rasters (Vorbild: Identity Lab / Kanzlei Denk); Kopf- und Fußzeile gleich groß, bis 52 px Namenshöhe. Auf dunklem Grund steht die Wortmarke in Snow, weil Ruby auf Ink kaum lesbar ist (1,8 : 1). Dateien: `assets/logo.svg` (Ruby), `assets/logo-negativ.svg` (Snow), Schrift in Pfaden. Favicon, Apple-Touch-Icon und App-Icon zeigen weiter die Bildmarke „=“ (`assets/logo-zeichen.svg`).
 
-**Handlungsfarben:** Buttons Sky Blue mit Ink-Schrift, beim Überfahren Ruby. „Ruhe.“ im Hero ist knallgelb markiert (`--marker: #FFE600`), sonst kommt Gelb nirgends vor.
+**Handlungsfarben:** Call to Action überall Ruby (Hover Ruby dunkel). Daneben das Telefon als Linien-Button mit Rand und Schrift in Ruby, beim Überfahren gefüllt; auf dunklem Grund (FAQ-Band) bleibt er weiß. „Ruhe.“ im Hero ist knallgelb markiert (`--marker: #FFE600`), sonst kommt Gelb nirgends vor.
 
 ## Bilder
 
