@@ -48,11 +48,12 @@
 
   --rule: 0.22em;   /* Stärke der Summenlinie, relativ zur Schrift */
   --ease: cubic-bezier(.2,.7,.2,1);
+  --logo-h: clamp(2.75rem, 1.9rem + 2.4vw, 4rem);  /* Logo in Kopf- und Fußzeile gleich groß */
 }
 
 /* ---------- Basis ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 6rem; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 7rem; }
 body {
   margin: 0;
   font-family: "Fira Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -132,9 +133,9 @@ ul { padding: 0; margin: 0; list-style: none; }
   transition: border-color .3s var(--ease);
 }
 .site-header.is-scrolled { border-bottom-color: var(--slate); }
-.site-header .wrap { display: flex; align-items: center; gap: 1.5rem; min-height: 5rem; }
+.site-header .wrap { display: flex; align-items: center; gap: 1.5rem; min-height: calc(var(--logo-h) + 2rem); }
 .brand { display: inline-flex; align-items: center; gap: .9rem; text-decoration: none; color: var(--ink); flex: none; }
-.brand svg { height: 3rem; width: auto; }
+.brand svg { height: var(--logo-h); width: auto; }
 .nav { margin-left: auto; }
 .nav ul { display: flex; gap: clamp(1rem, 2vw, 2rem); }
 .nav a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: .9375rem; padding-block: .5rem; background-image: linear-gradient(var(--ruby), var(--ruby)); background-size: 0 2px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .25s var(--ease); }
@@ -329,8 +330,8 @@ fieldset.field legend { padding: 0; margin-bottom: .5rem; }
 /* ---------- Fußzeile ---------- */
 .site-footer { background: var(--ink); color: var(--slate); padding-block: clamp(4rem, 8vw, 6.5rem) 2rem; font-size: .9375rem; }
 .site-footer a { color: var(--snow); }
-.footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2.5rem; }
-.footer__brand svg { height: 3rem; width: auto; max-width: 100%; margin-bottom: 1.5rem; }
+.footer__grid { display: grid; grid-template-columns: minmax(24rem, 1.6fr) 1fr 1fr 1fr; gap: 2.5rem; }
+.footer__brand svg { height: var(--logo-h); width: auto; max-width: 100%; margin-bottom: 1.5rem; }
 .footer__brand p { max-width: 32ch; }
 .site-footer h2 { font-size: .9375rem; font-weight: 500; color: var(--snow); margin-bottom: 1rem; letter-spacing: 0; }
 .site-footer li { margin-bottom: .5rem; }
