@@ -64,9 +64,9 @@ Lizenz: SIL Open Font License 1.1 (https://openfontlicense.org).
 h1 5.61rem · h2 4.209rem · h3 3.157rem · h4 2.369rem · h5 1.777rem · h6 1.333rem · p 1rem · small 0.75rem · xs 0.563rem.
 
 **Zeichen:** § Paragraf · Σ Summe · € Euro · % Prozent · = Gleich · + Plus – jedes Teammitglied hat ein „Lieblingszeichen“.
-Weitere Elemente: Kassenbon mit Fristen, T-Konto „Soll und Haben“, Summenlinie, Schwalbe als Gruß an die neue Adresse.
+Weitere Elemente: T-Konto „Soll und Haben“, Summenlinie, Schwalbe als Gruß an die neue Adresse.
 
-**Logo:** `assets/logo.svg` (Standard), `assets/logo-negativ.svg` (auf dunklem Grund), `assets/logo-wortmarke.svg` (ohne Zusatz), `favicon.svg` (Bildmarke „F“ mit Summenlinie). Alle Schriften im Logo sind in Pfade umgewandelt.
+**Logo:** Bildmarke „=“ (Die Rechnung geht auf) mit „Dr. Andreas Frank“ und „Steuerberatung Mannheim-Käfertal“. Dateien: `assets/logo.svg` (Standard), `assets/logo-negativ.svg` (auf dunklem Grund), `assets/logo-wortmarke.svg` (ohne Zusatzzeile), `assets/logo-zeichen.svg` (nur Bildmarke). Favicon, Apple-Touch-Icon und App-Icon zeigen die Bildmarke. Alle Schriften im Logo sind in Pfade umgewandelt.
 
 ## Bilder
 
