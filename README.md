@@ -8,7 +8,7 @@ Signatur ist die **doppelte Unterstreichung** (in der Buchhaltung: die Endsumme)
 
 | Datei | URL auf Vercel | Inhalt |
 |---|---|---|
-| `index.html` | `/` | Startseite: Headline „Belege, Fristen, Fragen? Wir sorgen für Ruhe.“, Leistungen, T-Konto, Arbeitsweise (KI + Mensch), Ablauf, Team, Umzug, Karriere, Kontakt |
+| `index.html` | `/` | Startseite: Headline „Belege, Fristen, Fragen? Wir sorgen für Ruhe.“, Leistungen, Arbeitsweise (KI + Mensch), Ablauf, Team, Umzug, Karriere, Kontakt |
 | `faq.html` | `/faq` | Häufige Fragen, Stand 20.11.2026, mit Steuer-Spickzettel 2026/2027 und FAQ-Schema (JSON-LD) |
 | `impressum.html` | `/impressum` | Impressum nach § 5 DDG inkl. berufsrechtlicher Angaben |
 | `datenschutz.html` | `/datenschutz` | Datenschutzerklärung für Hosting bei Vercel |
@@ -64,9 +64,9 @@ Lizenz: SIL Open Font License 1.1 (https://openfontlicense.org).
 h1 5.61rem · h2 4.209rem · h3 3.157rem · h4 2.369rem · h5 1.777rem · h6 1.333rem · p 1rem · small 0.75rem · xs 0.563rem.
 
 **Zeichen:** § Paragraf · Σ Summe · € Euro · % Prozent · = Gleich · + Plus – jedes Teammitglied hat ein „Lieblingszeichen“.
-Weitere Elemente: T-Konto „Soll und Haben“, Summenlinie, Schwalbe als Gruß an die neue Adresse.
+Weitere Elemente: Textmarker auf „Ruhe.“, Umzugs-Abschnitt mit der neuen Adresse in feiner Schrift.
 
-**Logo:** Typografische Wortmarke „Dr. Andreas Frank“ in Ruby (Fira Sans Light). Auf der Website steht sie 40 px vom linken Rand, bewusst außerhalb des Rasters; „Steuerberatung“ läuft senkrecht am rechten Rand mit (Vorbild: Identity Lab / Kanzlei Denk). Auf dunklem Grund steht der Name in Snow, weil Ruby auf Ink kaum lesbar ist (1,8 : 1). Dateien: `assets/logo.svg` (Ruby), `assets/logo-negativ.svg` (Snow), Schrift in Pfaden. Favicon, Apple-Touch-Icon und App-Icon zeigen weiter die Bildmarke „=“ (`assets/logo-zeichen.svg`).
+**Logo:** Typografische Wortmarke „Dr. Andreas Frank“ in Ruby (Fira Sans Light), darunter „Steuerberatung“ ebenfalls in Ruby (Regular, 0,36 × Namensgröße). Auf der Website steht sie 40 px vom linken Rand, bewusst außerhalb des Rasters (Vorbild: Identity Lab / Kanzlei Denk); Kopf- und Fußzeile gleich groß, bis 52 px Namenshöhe. Auf dunklem Grund steht die Wortmarke in Snow, weil Ruby auf Ink kaum lesbar ist (1,8 : 1). Dateien: `assets/logo.svg` (Ruby), `assets/logo-negativ.svg` (Snow), Schrift in Pfaden. Favicon, Apple-Touch-Icon und App-Icon zeigen weiter die Bildmarke „=“ (`assets/logo-zeichen.svg`).
 
 **Handlungsfarben:** Buttons Sky Blue mit Ink-Schrift, beim Überfahren Ruby. „Ruhe.“ im Hero ist knallgelb markiert (`--marker: #FFE600`), sonst kommt Gelb nirgends vor.
 

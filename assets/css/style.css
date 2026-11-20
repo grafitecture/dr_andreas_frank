@@ -9,7 +9,6 @@
 @font-face { font-family: "Fira Sans"; src: url("../fonts/FiraSans-Regular.woff") format("woff"); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: "Fira Sans"; src: url("../fonts/FiraSans-Medium.woff") format("woff"); font-weight: 500; font-style: normal; font-display: swap; }
 @font-face { font-family: "Fira Sans"; src: url("../fonts/FiraSans-SemiBold.woff") format("woff"); font-weight: 600; font-style: normal; font-display: swap; }
-@font-face { font-family: "Fira Sans"; src: url("../fonts/FiraSans-Black.woff") format("woff"); font-weight: 900; font-style: normal; font-display: swap; }
 
 /* ---------- Tokens ---------- */
 :root {
@@ -48,11 +47,9 @@
   --radius-m: 14px;
   --radius-l: 28px;
 
-  --rule: 0.22em;   /* Stärke der Summenlinie, relativ zur Schrift */
   --ease: cubic-bezier(.2,.7,.2,1);
-  --brand-fs: clamp(1.375rem, 0.95rem + 1.35vw, 2.25rem);  /* Wortmarke in Kopf- und Fußzeile gleich groß */
+  --brand-fs: clamp(1.75rem, -0.6rem + 4vw, 3.25rem);  /* Wortmarke in Kopf- und Fußzeile gleich groß */
   --brand-x: min(40px, var(--gutter));  /* Wortmarke: 40 px vom linken Rand, außerhalb des Rasters */
-  --header-h: clamp(4.25rem, 3.6rem + 1.6vw, 5.5rem);
 }
 
 /* ---------- Basis ---------- */
@@ -102,12 +99,6 @@ ul { padding: 0; margin: 0; list-style: none; }
 .wrap { width: min(100% - 2 * var(--gutter), var(--maxw)); margin-inline: auto; }
 .section { padding-block: var(--section); }
 
-/* ---------- Summenlinie (Signatur) ---------- */
-.sum-rule {
-  display: block; height: calc(var(--rule) * 3); width: 100%;
-  border-top: var(--rule) solid var(--ruby); border-bottom: var(--rule) solid var(--ruby);
-}
-
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: .6em;
@@ -139,21 +130,14 @@ ul { padding: 0; margin: 0; list-style: none; }
 .site-header.is-scrolled { border-bottom-color: var(--slate); }
 /* Wortmarke aus dem Raster genommen: links 40 px vom Rand, Navigation bleibt rechts im Raster */
 .site-header__bar {
-  display: flex; align-items: center; gap: 1.5rem; min-height: var(--header-h);
+  display: flex; align-items: center; gap: 1.5rem; padding-block: clamp(.875rem, .5rem + 1vw, 1.375rem);
   padding-left: var(--brand-x);
   padding-right: max(var(--gutter), (100% - var(--maxw)) / 2);
 }
 .brand { display: inline-flex; flex-direction: column; text-decoration: none; flex: none; line-height: 1; }
 .brand__name, .footer__name { font-size: var(--brand-fs); font-weight: 300; letter-spacing: -0.02em; line-height: 1; white-space: nowrap; }
-.brand__name { color: var(--ruby); }
-.brand__sub { display: none; }
-/* „Steuerberatung“ senkrecht am rechten Rand, bleibt beim Scrollen stehen */
-.brand-side {
-  position: fixed; z-index: 55; top: calc((var(--header-h) - var(--brand-fs)) / 2 + .1em); right: 12px;
-  writing-mode: vertical-rl; transform: rotate(180deg);
-  font-size: .8125rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; line-height: 1;
-  color: var(--ink); pointer-events: none; user-select: none;
-}
+.brand__name, .brand__sub { color: var(--ruby); }
+.brand__sub, .footer__sub { font-size: max(.8125rem, calc(var(--brand-fs) * .36)); font-weight: 400; letter-spacing: .01em; line-height: 1; margin-top: calc(var(--brand-fs) * .06); padding-left: .02em; white-space: nowrap; }
 .nav { margin-left: auto; }
 .nav ul { display: flex; gap: clamp(1rem, 2vw, 2rem); }
 .nav a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: .9375rem; padding-block: .5rem; background-image: linear-gradient(var(--ruby), var(--ruby)); background-size: 0 2px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .25s var(--ease); }
@@ -170,8 +154,7 @@ ul { padding: 0; margin: 0; list-style: none; }
 }
 @media (max-width: 900px) {
   .nav-toggle { display: grid; }
-  .nav, .header-actions, .brand-side { display: none; }
-  .brand__sub { display: block; margin-top: .35rem; font-size: .75rem; font-weight: 500; letter-spacing: .02em; color: var(--ink); }
+  .nav, .header-actions { display: none; }
   .site-header.nav-open .nav {
     display: block; position: absolute; inset: 100% 0 auto 0; background: var(--snow);
     border-bottom: 1px solid var(--slate); padding: 1rem var(--brand-x) 2rem;
@@ -218,18 +201,6 @@ ul { padding: 0; margin: 0; list-style: none; }
 
 /* ---------- T-Konto ---------- */
 .ledger-section { background: var(--white); }
-.t-account { max-width: 64rem; margin-inline: auto; }
-.t-account__title { text-align: center; font-size: var(--fs-h5); font-weight: 500; padding-bottom: 1rem; }
-.t-account__body { display: grid; grid-template-columns: 1fr 1fr; border-top: 3px solid var(--ink); }
-.t-account__side { padding: 1.5rem clamp(1rem, 3vw, 2.5rem) 2rem; }
-.t-account__side + .t-account__side { border-left: 3px solid var(--ink); }
-.t-account__label { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; color: var(--air-deep); font-weight: 500; margin-bottom: 1rem; }
-.t-account__label span { font-size: var(--fs-h4); font-weight: 300; color: var(--ink); }
-.t-account li { display: flex; gap: .9rem; padding: .85rem 0; border-bottom: 1px dashed var(--slate); font-size: 1.0625rem; }
-.t-account li b { font-weight: 400; font-variant-numeric: tabular-nums; color: var(--air); min-width: 1.6rem; }
-.t-account__saldo { display: grid; justify-items: center; gap: .6rem; margin-top: clamp(2rem, 4vw, 3rem); text-align: center; }
-.t-account__saldo .sum-rule { width: min(18rem, 60%); --rule: 4px; }
-.t-account__saldo p { font-size: var(--fs-h3); font-weight: 300; margin: 0; letter-spacing: -0.02em; }
 
 /* ---------- Arbeitsweise (große blaue Fläche) ---------- */
 .method { background: var(--air); color: var(--white); }
@@ -284,10 +255,10 @@ ul { padding: 0; margin: 0; list-style: none; }
 .move { background: var(--sky); }
 .move__grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
 .move h2 { margin-bottom: 1.75rem; }
-.move__address { margin: 0; max-width: none; display: grid; gap: .75rem; justify-self: end; }
-.move__when { font-size: var(--fs-h6); font-weight: 500; }
-.move__street { display: grid; font-size: clamp(2.6rem, 1.2rem + 5.2vw, 6.2rem); font-weight: 900; font-style: normal; letter-spacing: .02em; line-height: .95; }
-.move__city { font-size: var(--fs-h5); font-weight: 400; }
+.move__address { margin: 0; max-width: none; display: grid; gap: .5rem; justify-self: end; }
+.move__when { font-size: var(--fs-p); font-weight: 400; }
+.move__street { font-size: var(--fs-h3); font-weight: 300; letter-spacing: -0.01em; line-height: 1.1; white-space: nowrap; }
+.move__city { font-size: var(--fs-p); font-weight: 300; }
 
 /* ---------- Karriere ---------- */
 .career { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
@@ -346,7 +317,7 @@ fieldset.field legend { padding: 0; margin-bottom: .5rem; }
 .site-footer a { color: var(--snow); }
 .footer__grid { display: grid; grid-template-columns: minmax(24rem, 1.6fr) 1fr 1fr 1fr; gap: 2.5rem; }
 .footer__name { margin: 0; color: var(--snow); }
-.footer__sub { margin: .5rem 0 1.5rem; font-size: .8125rem; font-weight: 500; color: var(--slate); }
+.footer__sub { color: var(--snow); margin-bottom: 1.75rem; }
 .footer__brand p { max-width: 32ch; }
 .site-footer h2 { font-size: .9375rem; font-weight: 500; color: var(--snow); margin-bottom: 1rem; letter-spacing: 0; }
 .site-footer li { margin-bottom: .5rem; }
@@ -452,8 +423,6 @@ mark.todo { background: #FFF1B8; color: var(--ink); padding: 0 .2em; border-radi
   .principles { grid-template-columns: 1fr; }
   .principle { grid-template-columns: 1fr; }
   .principle .icon { grid-row: auto; margin-bottom: .75rem; }
-  .t-account__body { grid-template-columns: 1fr; }
-  .t-account__side + .t-account__side { border-left: 0; border-top: 3px solid var(--ink); }
   .team { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
   .field-row { grid-template-columns: 1fr; }
@@ -477,7 +446,7 @@ mark.todo { background: #FFF1B8; color: var(--ink); padding: 0 .2em; border-radi
 }
 
 @media print {
-  .site-header, .brand-side, .action-bar, .form, .nav-toggle { display: none !important; }
+  .site-header, .action-bar, .form, .nav-toggle { display: none !important; }
   body { background: #fff; }
 }
 
