@@ -26,6 +26,7 @@
   --ruby-deep: #86111A;   /* Hover für Ruby */
   --slate-soft: #EEF0F4;  /* sehr helle Fläche */
   --white: #FFFFFF;
+  --marker: #FFE600;      /* Textmarker – nur für „Ruhe.“ */
 
   /* Typo-Skala (Perfect Fourth 1.333) mit Clamping 360 → 1440 px */
   --fs-h1: clamp(2.75rem, 1.7967rem + 4.2370vw, 5.61rem);
@@ -40,7 +41,7 @@
   --fs-glyph: clamp(4rem, 2.1667rem + 8.1481vw, 9.5rem);
 
   /* Raum */
-  --gutter: clamp(1.25rem, 0.8rem + 2vw, 2.5rem);
+  --gutter: clamp(1.25rem, 0.4rem + 3.6vw, 3.5rem);
   --section: clamp(5rem, 3rem + 8vw, 11rem);
   --maxw: 82.5rem;  /* 1320px */
   --radius-s: 6px;
@@ -49,7 +50,9 @@
 
   --rule: 0.22em;   /* Stärke der Summenlinie, relativ zur Schrift */
   --ease: cubic-bezier(.2,.7,.2,1);
-  --logo-h: clamp(2.5rem, 1.95rem + 1.6vw, 3.375rem);  /* Logo in Kopf- und Fußzeile gleich groß */
+  --brand-fs: clamp(1.375rem, 0.95rem + 1.35vw, 2.25rem);  /* Wortmarke in Kopf- und Fußzeile gleich groß */
+  --brand-x: min(40px, var(--gutter));  /* Wortmarke: 40 px vom linken Rand, außerhalb des Rasters */
+  --header-h: clamp(4.25rem, 3.6rem + 1.6vw, 5.5rem);
 }
 
 /* ---------- Basis ---------- */
@@ -115,8 +118,8 @@ ul { padding: 0; margin: 0; list-style: none; }
   transition: background-color .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
 }
 .btn svg { width: 1.15em; height: 1.15em; flex: none; }
-.btn--primary { background: var(--ruby); color: var(--snow); }
-.btn--primary:hover { background: var(--ruby-deep); color: var(--snow); }
+.btn--primary { background: var(--sky); color: var(--ink); }
+.btn--primary:hover { background: var(--ruby); color: var(--snow); }
 .btn--ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
 .btn--ghost:hover { background: var(--ink); color: var(--snow); }
 .btn--light { background: var(--snow); color: var(--ink); }
@@ -134,9 +137,23 @@ ul { padding: 0; margin: 0; list-style: none; }
   transition: border-color .3s var(--ease);
 }
 .site-header.is-scrolled { border-bottom-color: var(--slate); }
-.site-header .wrap { display: flex; align-items: center; gap: 1.5rem; min-height: calc(var(--logo-h) + 2rem); }
-.brand { display: inline-flex; align-items: center; gap: .9rem; text-decoration: none; color: var(--ink); flex: none; }
-.brand svg { height: var(--logo-h); width: auto; }
+/* Wortmarke aus dem Raster genommen: links 40 px vom Rand, Navigation bleibt rechts im Raster */
+.site-header__bar {
+  display: flex; align-items: center; gap: 1.5rem; min-height: var(--header-h);
+  padding-left: var(--brand-x);
+  padding-right: max(var(--gutter), (100% - var(--maxw)) / 2);
+}
+.brand { display: inline-flex; flex-direction: column; text-decoration: none; flex: none; line-height: 1; }
+.brand__name, .footer__name { font-size: var(--brand-fs); font-weight: 300; letter-spacing: -0.02em; line-height: 1; white-space: nowrap; }
+.brand__name { color: var(--ruby); }
+.brand__sub { display: none; }
+/* „Steuerberatung“ senkrecht am rechten Rand, bleibt beim Scrollen stehen */
+.brand-side {
+  position: fixed; z-index: 55; top: calc((var(--header-h) - var(--brand-fs)) / 2 + .1em); right: 12px;
+  writing-mode: vertical-rl; transform: rotate(180deg);
+  font-size: .8125rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; line-height: 1;
+  color: var(--ink); pointer-events: none; user-select: none;
+}
 .nav { margin-left: auto; }
 .nav ul { display: flex; gap: clamp(1rem, 2vw, 2rem); }
 .nav a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: .9375rem; padding-block: .5rem; background-image: linear-gradient(var(--ruby), var(--ruby)); background-size: 0 2px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .25s var(--ease); }
@@ -153,10 +170,11 @@ ul { padding: 0; margin: 0; list-style: none; }
 }
 @media (max-width: 900px) {
   .nav-toggle { display: grid; }
-  .nav, .header-actions { display: none; }
+  .nav, .header-actions, .brand-side { display: none; }
+  .brand__sub { display: block; margin-top: .35rem; font-size: .75rem; font-weight: 500; letter-spacing: .02em; color: var(--ink); }
   .site-header.nav-open .nav {
     display: block; position: absolute; inset: 100% 0 auto 0; background: var(--snow);
-    border-bottom: 1px solid var(--slate); padding: 1rem var(--gutter) 2rem;
+    border-bottom: 1px solid var(--slate); padding: 1rem var(--brand-x) 2rem;
   }
   .site-header.nav-open .nav ul { flex-direction: column; gap: 0; }
   .site-header.nav-open .nav a { display: block; padding: 1rem 0; font-size: 1.25rem; border-bottom: 1px solid var(--slate-soft); background: none; }
@@ -167,8 +185,13 @@ ul { padding: 0; margin: 0; list-style: none; }
 .hero__grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
 
 .hero__title { font-size: var(--fs-h1); font-weight: 300; line-height: 1.04; letter-spacing: -0.025em; max-width: 11.5ch; margin: 0 0 clamp(1.5rem, 3vw, 2.5rem); text-wrap: balance; }
-.sum-word { position: relative; display: inline-block; font-weight: 500; letter-spacing: -0.03em; }
-.sum-word::after { content: ""; position: absolute; left: 0; right: .08em; bottom: -.1em; height: .16em; border-top: .045em solid var(--ruby); border-bottom: .045em solid var(--ruby); transform-origin: left center; }
+/* „Ruhe.“ mit Textmarker: knallgelb, leicht schräg wie von Hand gezogen */
+.marker { position: relative; z-index: 0; display: inline-block; font-weight: 500; letter-spacing: -0.03em; }
+.marker::before {
+  content: ""; position: absolute; z-index: -1; left: -.1em; right: -.12em; top: .16em; bottom: .02em;
+  background: var(--marker); border-radius: .1em .22em .14em .3em / .3em .14em .24em .1em;
+  transform: rotate(-1.2deg) skewX(-8deg);
+}
 
 .hero__intro .lead { margin-bottom: 2rem; }
 
@@ -322,7 +345,8 @@ fieldset.field legend { padding: 0; margin-bottom: .5rem; }
 .site-footer { background: var(--ink); color: var(--slate); padding-block: clamp(4rem, 8vw, 6.5rem) 2rem; font-size: .9375rem; }
 .site-footer a { color: var(--snow); }
 .footer__grid { display: grid; grid-template-columns: minmax(24rem, 1.6fr) 1fr 1fr 1fr; gap: 2.5rem; }
-.footer__brand svg { height: var(--logo-h); width: auto; max-width: 100%; margin-bottom: 1.5rem; }
+.footer__name { margin: 0; color: var(--snow); }
+.footer__sub { margin: .5rem 0 1.5rem; font-size: .8125rem; font-weight: 500; color: var(--slate); }
 .footer__brand p { max-width: 32ch; }
 .site-footer h2 { font-size: .9375rem; font-weight: 500; color: var(--snow); margin-bottom: 1rem; letter-spacing: 0; }
 .site-footer li { margin-bottom: .5rem; }
@@ -442,10 +466,10 @@ mark.todo { background: #FFF1B8; color: var(--ink); padding: 0 .2em; border-radi
 /* ---------- Der eine Moment: Die Rechnung geht auf ---------- */
 @media (prefers-reduced-motion: no-preference) {
   .js .hero__title { animation: eq-in .8s var(--ease) both; }
-  .js .sum-word::after { transform: scaleX(0); animation: rule-in .8s var(--ease) .7s forwards; }
+  .js .marker::before { clip-path: inset(0 100% 0 0); animation: marker-in .6s cubic-bezier(.5,0,.3,1) .75s forwards; }
 }
 @keyframes eq-in { from { opacity: 0; transform: translateY(.15em); } to { opacity: 1; transform: none; } }
-@keyframes rule-in { to { transform: scaleX(1); } }
+@keyframes marker-in { to { clip-path: inset(-10% -10% -10% -10%); } }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -453,7 +477,7 @@ mark.todo { background: #FFF1B8; color: var(--ink); padding: 0 .2em; border-radi
 }
 
 @media print {
-  .site-header, .action-bar, .form, .nav-toggle { display: none !important; }
+  .site-header, .brand-side, .action-bar, .form, .nav-toggle { display: none !important; }
   body { background: #fff; }
 }
 

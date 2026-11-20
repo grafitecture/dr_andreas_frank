@@ -66,7 +66,9 @@ h1 5.61rem · h2 4.209rem · h3 3.157rem · h4 2.369rem · h5 1.777rem · h6 1.3
 **Zeichen:** § Paragraf · Σ Summe · € Euro · % Prozent · = Gleich · + Plus – jedes Teammitglied hat ein „Lieblingszeichen“.
 Weitere Elemente: T-Konto „Soll und Haben“, Summenlinie, Schwalbe als Gruß an die neue Adresse.
 
-**Logo:** Bildmarke „=“ (Die Rechnung geht auf) mit „Dr. Andreas Frank“ und „Steuerberatung Mannheim-Käfertal“. Dateien: `assets/logo.svg` (Standard), `assets/logo-negativ.svg` (auf dunklem Grund), `assets/logo-wortmarke.svg` (ohne Zusatzzeile), `assets/logo-zeichen.svg` (nur Bildmarke). Favicon, Apple-Touch-Icon und App-Icon zeigen die Bildmarke. Alle Schriften im Logo sind in Pfade umgewandelt.
+**Logo:** Typografische Wortmarke „Dr. Andreas Frank“ in Ruby (Fira Sans Light). Auf der Website steht sie 40 px vom linken Rand, bewusst außerhalb des Rasters; „Steuerberatung“ läuft senkrecht am rechten Rand mit (Vorbild: Identity Lab / Kanzlei Denk). Auf dunklem Grund steht der Name in Snow, weil Ruby auf Ink kaum lesbar ist (1,8 : 1). Dateien: `assets/logo.svg` (Ruby), `assets/logo-negativ.svg` (Snow), Schrift in Pfaden. Favicon, Apple-Touch-Icon und App-Icon zeigen weiter die Bildmarke „=“ (`assets/logo-zeichen.svg`).
+
+**Handlungsfarben:** Buttons Sky Blue mit Ink-Schrift, beim Überfahren Ruby. „Ruhe.“ im Hero ist knallgelb markiert (`--marker: #FFE600`), sonst kommt Gelb nirgends vor.
 
 ## Bilder
 
