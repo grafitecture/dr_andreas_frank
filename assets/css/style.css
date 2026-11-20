@@ -188,29 +188,6 @@ ul { padding: 0; margin: 0; list-style: none; }
 .hero__figure figcaption { margin-top: 1rem; font-size: .9375rem; color: var(--ink-soft); }
 .hero__figure figcaption strong { display: block; color: var(--ink); font-weight: 500; font-size: 1rem; }
 
-/* Beleg / Kassenbon */
-.receipt {
-  --zig: 10px;
-  position: absolute; left: clamp(-4.5rem, -5vw, -1.5rem); bottom: 4.5rem; width: min(19rem, 78%);
-  background: var(--white); color: var(--ink);
-  padding: 1.25rem 1.35rem calc(1.1rem + var(--zig));
-  font-size: .875rem; line-height: 1.45; font-variant-numeric: tabular-nums;
-  box-shadow: 0 1px 0 rgba(28,43,54,.05), 0 18px 40px -18px rgba(28,43,54,.35);
-  transform: rotate(-2.2deg);
-  -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(var(--zig) * 2) 100%;
-          mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(var(--zig) * 2) 100%;
-}
-.receipt__head { display: flex; justify-content: space-between; gap: 1rem; color: var(--ink-soft); font-size: var(--fs-small); margin-bottom: .6rem; }
-.receipt__title { font-weight: 500; font-size: .9375rem; margin: 0 0 .5rem; }
-.receipt dl { margin: 0; }
-.receipt__row { display: flex; align-items: baseline; gap: .4rem; }
-.receipt__row dt { white-space: nowrap; }
-.receipt__row dd { margin: 0; white-space: nowrap; }
-.receipt__row::after { content: none; }
-.receipt__row .dots { flex: 1; border-bottom: 1.5px dotted var(--slate); transform: translateY(-.3em); min-width: 1rem; }
-.receipt .sum-rule { --rule: 2px; margin: .6rem 0 .5rem; }
-.receipt__total { font-weight: 600; }
-
 /* ---------- Sektionen allgemein ---------- */
 .section-head { display: grid; gap: 1.5rem; margin-bottom: clamp(3rem, 6vw, 5.5rem); max-width: 60rem; }
 .section-head p { margin: 0; }
@@ -453,7 +430,6 @@ mark.todo { background: #FFF1B8; color: var(--ink); padding: 0 .2em; border-radi
 @media (max-width: 960px) {
   .hero__grid, .personal, .move__grid, .career, .contact__grid, .method__media { grid-template-columns: 1fr; }
   .hero__figure { max-width: 30rem; margin-left: auto; }
-  .receipt { left: -1.25rem; }
   .services { grid-template-columns: 1fr; }
   .team { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .faq-layout { grid-template-columns: 1fr; }
@@ -487,11 +463,9 @@ mark.todo { background: #FFF1B8; color: var(--ink); padding: 0 .2em; border-radi
   .js .equation__line:nth-child(3) > * { animation-delay: .6s; }
   .js .equation__sum .sum-rule { transform: scaleX(0); animation: rule-in .8s var(--ease) .95s forwards; }
   .js .equation__result > * { animation-delay: 1.55s; }
-  .js .receipt { opacity: 0; animation: receipt-in .9s var(--ease) 1.9s forwards; }
 }
 @keyframes eq-in { to { opacity: 1; transform: none; } }
 @keyframes rule-in { to { transform: scaleX(1); } }
-@keyframes receipt-in { from { opacity: 0; transform: rotate(-2.2deg) translateY(1.5rem); } to { opacity: 1; transform: rotate(-2.2deg); } }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
