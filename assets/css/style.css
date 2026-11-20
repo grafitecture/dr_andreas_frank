@@ -123,11 +123,6 @@ ul { padding: 0; margin: 0; list-style: none; }
 
 .icon { width: 1.5rem; height: 1.5rem; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 
-/* ---------- Umzugs-Hinweis (oben) ---------- */
-.notice { background: var(--sky); color: var(--ink); font-size: .9375rem; }
-.notice .wrap { display: flex; flex-wrap: wrap; gap: .25rem 1rem; align-items: center; justify-content: center; padding-block: .6rem; text-align: center; }
-.notice a { color: var(--ink); font-weight: 500; }
-
 /* ---------- Kopfzeile ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 50;
@@ -473,7 +468,7 @@ mark.todo { background: #FFF1B8; color: var(--ink); padding: 0 .2em; border-radi
 }
 
 @media print {
-  .site-header, .notice, .action-bar, .form, .nav-toggle { display: none !important; }
+  .site-header, .action-bar, .form, .nav-toggle { display: none !important; }
   body { background: #fff; }
 }
 
