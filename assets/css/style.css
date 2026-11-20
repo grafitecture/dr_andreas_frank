@@ -37,7 +37,6 @@
   --fs-p: 1rem;
   --fs-small: 0.75rem;
   --fs-xs: 0.563rem;
-  --fs-glyph: clamp(4rem, 2.1667rem + 8.1481vw, 9.5rem);
 
   /* Raum */
   --gutter: clamp(1.25rem, 0.4rem + 3.6vw, 3.5rem);
@@ -136,9 +135,9 @@ ul { padding: 0; margin: 0; list-style: none; }
   padding-right: max(var(--gutter), (100% - var(--maxw)) / 2);
 }
 .brand { display: inline-flex; flex-direction: column; text-decoration: none; flex: none; line-height: 1; }
-.brand__name, .footer__name { font-size: var(--brand-fs); font-weight: 300; letter-spacing: -0.02em; line-height: 1; white-space: nowrap; }
+/* Wortmarke: „Dr. Andreas Frank“ und „Steuerberatung“ in gleicher Größe, zwei Zeilen */
+.brand__name, .brand__sub, .footer__name, .footer__sub { display: block; font-size: var(--brand-fs); font-weight: 300; letter-spacing: -0.02em; line-height: 1.06; white-space: nowrap; }
 .brand__name, .brand__sub { color: var(--ruby); }
-.brand__sub, .footer__sub { font-size: max(.8125rem, calc(var(--brand-fs) * .36)); font-weight: 400; letter-spacing: .01em; line-height: 1; margin-top: calc(var(--brand-fs) * .06); padding-left: .02em; white-space: nowrap; }
 .nav { margin-left: auto; }
 .nav ul { display: flex; gap: clamp(1rem, 2vw, 2rem); }
 .nav a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: .9375rem; padding-block: .5rem; background-image: linear-gradient(var(--ruby), var(--ruby)); background-size: 0 2px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .25s var(--ease); }
@@ -192,8 +191,11 @@ ul { padding: 0; margin: 0; list-style: none; }
 
 /* ---------- Leistungen ---------- */
 .services { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(2.5rem, 5vw, 5rem); }
-.service__glyph--plus { transform: scale(1.35); transform-origin: left 70%; }
-.service__glyph { display: inline-block; font-size: var(--fs-glyph); font-weight: 300; line-height: .8; color: var(--sky); margin-bottom: 1.5rem; letter-spacing: -0.04em; }
+/* Überschrift, Satz und Liste stehen in allen drei Spalten auf einer Höhe */
+@media (min-width: 961px) {
+  .services { row-gap: 0; }
+  .service { display: grid; grid-row: span 3; grid-template-rows: subgrid; align-content: start; }
+}
 .service h3 { font-size: var(--fs-h4); margin-bottom: .75rem; }
 .service > p { color: var(--ink-soft); margin-bottom: 1.5rem; }
 .service li { position: relative; padding: .7rem 0 .7rem 1.6rem; border-top: 1px solid var(--slate); }
@@ -319,8 +321,8 @@ fieldset.field legend { padding: 0; margin-bottom: .5rem; }
 .site-footer { background: var(--ink); color: var(--slate); padding-block: clamp(4rem, 8vw, 6.5rem) 2rem; font-size: .9375rem; }
 .site-footer a { color: var(--snow); }
 .footer__grid { display: grid; grid-template-columns: minmax(24rem, 1.6fr) 1fr 1fr 1fr; gap: 2.5rem; }
-.footer__name { margin: 0; color: var(--snow); }
-.footer__sub { color: var(--snow); margin-bottom: 1.75rem; }
+.footer__name, .footer__sub { margin: 0; color: var(--snow); }
+.footer__sub { margin-bottom: 1.75rem; }
 .footer__brand p { max-width: 32ch; }
 .site-footer h2 { font-size: .9375rem; font-weight: 500; color: var(--snow); margin-bottom: 1rem; letter-spacing: 0; }
 .site-footer li { margin-bottom: .5rem; }
