@@ -424,7 +424,8 @@ mark.todo { background: #FFF1B8; color: var(--ink); padding: 0 .2em; border-radi
 @media (max-width: 960px) {
   .move__address { justify-self: start; }
   .hero__grid, .personal, .move__grid, .career, .contact__grid, .method__media { grid-template-columns: 1fr; }
-  .hero__figure { max-width: 30rem; margin-left: auto; }
+  .hero__figure { max-width: none; margin: 0; }  /* volle Breite wie alle Bilder */
+  .hero__figure img { aspect-ratio: 4 / 3.2; object-position: 50% 20%; }
   .services { grid-template-columns: 1fr; }
   .team { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .faq-layout { grid-template-columns: 1fr; }
@@ -443,7 +444,7 @@ mark.todo { background: #FFF1B8; color: var(--ink); padding: 0 .2em; border-radi
   .footer__grid { grid-template-columns: 1fr; }
   .team-photo img { aspect-ratio: 4 / 3; }
   .faq-item__body { padding-right: 0; }
-  .hero__figure { margin-left: 1.5rem; }
+  .hero__figure img { aspect-ratio: 4 / 5; object-position: 50% 15%; }
 }
 
 /* ---------- Der eine Moment: Die Rechnung geht auf ---------- */
