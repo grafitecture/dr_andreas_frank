@@ -10,7 +10,7 @@
 <meta name="format-detection" content="telephone=no">
 <link rel="preload" href="assets/fonts/FiraSans-Light.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/fonts/FiraSans-Regular.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=8d9fd457">
+<link rel="stylesheet" href="assets/css/style.css?v=2b8f8b2d">
 <script src="assets/js/early.js?v=de8ec58e"></script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -88,19 +88,21 @@
   <!-- ===== Hero: Die Rechnung ===== -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap hero__grid">
-      <div class="hero__intro">
+      <!-- Mobil: Bild und Headline füllen zusammen den ersten Bildschirm (Bild zuerst) -->
+      <div class="hero__stage">
         <h1 class="hero__title" id="hero-title">Belege, Fristen, Fragen? Wir sorgen für <span class="marker">Ruhe.</span></h1>
+        <figure class="hero__figure">
+          <img src="assets/img/andreas-frank.webp" srcset="assets/img/andreas-frank-560.webp 560w, assets/img/andreas-frank.webp 800w" sizes="(max-width: 960px) 100vw, 36vw" width="800" height="1066" alt="Dr. Andreas Frank in dunkelblauem Pullover, mit verschränkten Armen und einem Lächeln, in einem hellen Büro" fetchpriority="high">
+          <figcaption><strong>Dr. Andreas Frank</strong>Steuerberater und Ihr persönlicher Ansprechpartner</figcaption>
+        </figure>
+      </div>
+      <div class="hero__intro">
         <p class="lead">Wir kümmern uns um Ihre Steuern – genau, schnell und verständlich erklärt. Mit modernster Technik und trotzdem immer persönlich für Sie da.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#kontakt"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Kennenlernen vereinbaren</a>
           <a class="btn btn--ghost" href="tel:+496218415299"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>0621 84 15 299</a>
         </div>
       </div>
-
-      <figure class="hero__figure">
-        <img src="assets/img/andreas-frank.webp" srcset="assets/img/andreas-frank-560.webp 560w, assets/img/andreas-frank.webp 800w" sizes="(max-width: 960px) 100vw, 36vw" width="800" height="1066" alt="Dr. Andreas Frank in dunkelblauem Pullover, mit verschränkten Armen und einem Lächeln, in einem hellen Büro" fetchpriority="high">
-        <figcaption><strong>Dr. Andreas Frank</strong>Steuerberater und Ihr persönlicher Ansprechpartner</figcaption>
-      </figure>
     </div>
   </section>
 
