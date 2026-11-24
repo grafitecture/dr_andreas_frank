@@ -35,6 +35,23 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
   }
 
+  /* Textmarker: erst ziehen, wenn die Stelle beim Scrollen im Bild ankommt */
+  var markers = document.querySelectorAll('.marker');
+  if (markers.length) {
+    var mark = function (el) { el.classList.add('is-marked'); };
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { mark(e.target); io.unobserve(e.target); }
+        });
+      }, { threshold: 1, rootMargin: '0px 0px -12% 0px' });
+      /* „Ruhe.“ im Hero steht im ersten Bild und wird wie bisher gleich beim Laden gezogen */
+      markers.forEach(function (el) { if (el.closest('.hero')) { mark(el); } else { io.observe(el); } });
+    } else {
+      markers.forEach(mark);
+    }
+  }
+
   /* Kontaktformular: Versand über /api/contact, sonst E-Mail-Programm als Ausweg */
   var form = document.querySelector('[data-contact-form]');
   if (!form) return;
