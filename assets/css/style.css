@@ -453,13 +453,7 @@ mark.todo { background: #FFF1B8; color: var(--ink); padding: 0 .2em; border-radi
   }
   .hero__figure { order: -1; align-self: stretch; flex: 1 1 auto; min-height: 15rem; max-width: none; margin: 0 0 clamp(1.25rem, 4vw, 2rem); }  /* volle Breite wie alle Bilder */
   .hero__figure img { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; object-position: 50% 15%; }
-  .hero__figure figcaption {
-    position: absolute; left: .75rem; bottom: .75rem; max-width: calc(100% - 1.5rem); margin: 0;
-    padding: .5rem .8rem; border-radius: var(--radius-m); font-size: .75rem; line-height: 1.35;
-    background: color-mix(in srgb, var(--snow) 90%, transparent);
-    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
-  }
-  .hero__figure figcaption strong { font-size: .875rem; }
+  .hero__figure figcaption { display: none; }  /* mobil ohne Bildunterschrift */
   .hero__title { align-self: auto; margin-bottom: 0; }
   .services { grid-template-columns: 1fr; }
   .team { grid-template-columns: repeat(2, minmax(0, 1fr)); }
