@@ -47,7 +47,7 @@
   --radius-l: 28px;
 
   --ease: cubic-bezier(.2,.7,.2,1);
-  --brand-fs: clamp(1.75rem, -0.6rem + 4vw, 3.25rem);  /* Wortmarke in Kopf- und Fußzeile gleich groß */
+  --brand-fs: clamp(1.75rem, -0.6rem + 4vw, 3.25rem);  /* Wortmarke Kopfzeile oben; Fußzeile = Endgröße der Kopfzeile (× --k) */
   --brand-x: min(40px, var(--gutter));  /* Wortmarke: 40 px vom linken Rand, außerhalb des Rasters */
   /* Kopfzeile: volle Höhe oben, beim Scrollen schrumpft die Wortmarke auf den Anteil --k */
   --hpad: clamp(.875rem, .5rem + 1vw, 1.375rem);
@@ -340,16 +340,19 @@ fieldset.field legend { padding: 0; margin-bottom: .5rem; }
 .form__note { margin-top: 1.25rem; font-size: var(--fs-small); color: var(--ink-soft); }
 
 /* ---------- Fußzeile ---------- */
-.site-footer { background: var(--ink); color: var(--slate); padding-block: clamp(4rem, 8vw, 6.5rem) 2rem; font-size: .9375rem; }
+/* Fläche in Ruby; Fließtext Snow 85 % (5,6 : 1), Überschriften und Links Snow (7,3 : 1) */
+.site-footer { background: var(--ruby); color: rgba(252, 247, 248, .85); padding-block: clamp(4rem, 8vw, 6.5rem) 2rem; font-size: .9375rem; }
 .site-footer a { color: var(--snow); }
+.site-footer :focus-visible { outline-color: var(--snow); }  /* Ruby-Fokusrahmen wäre auf Ruby unsichtbar */
 .footer__grid { display: grid; grid-template-columns: minmax(24rem, 1.6fr) 1fr 1fr 1fr; gap: 2.5rem; }
-.footer__name, .footer__sub { margin: 0; color: var(--snow); }
+/* Wortmarke so groß wie in der Kopfzeile nach dem Scrollen (Endposition) */
+.footer__name, .footer__sub { margin: 0; color: var(--snow); font-size: calc(var(--brand-fs) * var(--k)); }
 .footer__sub { margin-bottom: 1.75rem; }
 .footer__brand p { max-width: 32ch; }
 .site-footer h2 { font-size: .9375rem; font-weight: 500; color: var(--snow); margin-bottom: 1rem; letter-spacing: 0; }
 .site-footer li { margin-bottom: .5rem; }
 .site-footer address { font-style: normal; }
-.footer__bottom { margin-top: clamp(3rem, 6vw, 5rem); padding-top: 1.5rem; border-top: 1px solid rgba(206, 211, 220, .25); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; font-size: var(--fs-small); }
+.footer__bottom { margin-top: clamp(3rem, 6vw, 5rem); padding-top: 1.5rem; border-top: 1px solid rgba(252, 247, 248, .3); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; font-size: var(--fs-small); }
 
 /* ---------- Mobile Aktionsleiste ---------- */
 .action-bar { display: none; }
