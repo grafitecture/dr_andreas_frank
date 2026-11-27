@@ -7,7 +7,7 @@
  * Abmelden: /abmelden
  *
  * Beim Livegang diese Datei löschen (und SITE_PASSWORD in Vercel entfernen).
- * Wird aus src/middleware.js gebaut (build.py setzt /assets/css/style.css?v=69b1850d ein).
+ * Wird aus src/middleware.js gebaut (build.py setzt /assets/css/style.css?v=3d497ccf ein).
  */
 
 export const config = {
@@ -63,7 +63,7 @@ function page(error) {
 <title>Anmelden | Dr. Andreas Frank, Steuerberater</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FCF7F8">
-<link rel="stylesheet" href="/assets/css/style.css?v=69b1850d">
+<link rel="stylesheet" href="/assets/css/style.css?v=3d497ccf">
 <link rel="icon" href="/favicon.svg?v=fcde660d" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico?v=fcde660d" sizes="32x32">
 </head>

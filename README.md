@@ -64,7 +64,7 @@ Lizenz: SIL Open Font License 1.1 (https://openfontlicense.org).
 **Typo-Skala** (Perfect Fourth, mit `clamp()` von 360 bis 1440 px Viewport):
 h1 5.61rem · h2 4.209rem · h3 3.157rem · h4 2.369rem · h5 1.777rem · h6 1.333rem · p 1rem · small 0.75rem · xs 0.563rem.
 
-**Zeichen:** § Paragraf · Σ Summe · € Euro · % Prozent · = Gleich · + Plus – jedes Teammitglied hat ein „Lieblingszeichen“.
+**Zeichen:** § Paragraf · Σ Summe · € Euro · % Prozent · = Gleich · + Plus – je eines steht als Kreis am Porträt jedes Teammitglieds. Die Zeile „Lieblingszeichen: …“ unter den Personen und der Satz dazu im Team-Intro wurden am 27.11.2026 auf Wunsch entfernt.
 Weitere Elemente: Textmarker auf „Ruhe.“ sowie dezent auf „zuhören.“ (Team) und „Erst reden.“ (Kontakt), Umzugs-Abschnitt mit der neuen Adresse in feiner Schrift.
 
 **Leistungsbereich (`#leistungen`, seit 27.11.2026):** Leistungen und Ablauf stehen in einem einzigen dunkelblauen Bereich, damit man alles an einer Stelle liest. Reihenfolge: drei helle Karten (privat, Unternehmen, Vereine; Überschrift, Satz und Liste bündig, Haken in Ruby) · „Vom Schuhkarton zum Steuerbescheid.“ (vier Schritte, Nummern in Ruby-Kreisen) · Zitat von Dr. Frank mit Termin- und Telefon-Button (mobil ohne Buttons, die Leiste unten übernimmt). Das Zitat steht auf Dunkelblau und hat deshalb keinen Textmarker. Auf Wunsch ersatzlos entfernt: „Die KI sortiert. Wir denken mit.“ (vier Eigenschaften, Datenschutz-Hinweis zur KI), „Technik spart Zeit. Die nehmen wir uns für Sie.“ mit Beratungsbild, die doppelte Linie über dem Zitat, das Teamwork-Bild und das Gruppenfoto im Team-Bereich (Bilddateien liegen noch in `assets/img/`). Im Menü steht nur noch „Leistungen“.

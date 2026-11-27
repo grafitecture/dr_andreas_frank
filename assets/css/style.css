@@ -279,7 +279,6 @@ body { padding-top: var(--header-full); }
 .member h3 { font-size: var(--fs-h5); font-weight: 500; letter-spacing: -0.01em; margin-bottom: .2rem; }
 .member__role { color: var(--air-deep); font-weight: 500; font-size: .9375rem; margin-bottom: .75rem; }
 .member__text { color: var(--ink-soft); margin: 0; }
-.member__fav { margin-top: .75rem; font-size: var(--fs-small); color: var(--ink-soft); }
 
 /* ---------- Umzug ---------- */
 .move { background: var(--sky); }
