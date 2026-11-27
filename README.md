@@ -8,7 +8,7 @@ Signatur ist die **doppelte Unterstreichung** (in der Buchhaltung: die Endsumme)
 
 | Datei | URL auf Vercel | Inhalt |
 |---|---|---|
-| `index.html` | `/` | Startseite: Headline „Belege, Fristen, Fragen? Wir sorgen für Ruhe.“, Leistungen, Arbeitsweise (KI + Mensch), Ablauf, Team, Umzug, Karriere, Kontakt |
+| `index.html` | `/` | Startseite: Headline „Belege, Fristen, Fragen? Wir sorgen für Ruhe.“, Leistungsbereich „Alles, was zählt.“ (Leistungen, Ablauf, Arbeitsweise KI + Mensch, Persönlich, Zitat), Team, Umzug, Karriere, Kontakt |
 | `faq.html` | `/faq` | Häufige Fragen, Stand 20.11.2026, mit Steuer-Spickzettel 2026/2027 und FAQ-Schema (JSON-LD) |
 | `impressum.html` | `/impressum` | Impressum nach § 5 DDG inkl. berufsrechtlicher Angaben |
 | `datenschutz.html` | `/datenschutz` | Datenschutzerklärung für Hosting bei Vercel |
@@ -56,6 +56,7 @@ Gelb markierte Stellen (`<mark class="todo">`) in Impressum und Datenschutz ausf
 
 **Farben** (Vorgabe): Ruby Red `#A31621` (Handlungen, Summenlinie) · Snow `#FCF7F8` (Grundfläche) · Pale Slate `#CED3DC` (Linien) · Air Force Blue `#4E8098` (Marke, große Flächen) · Sky Blue `#90C2E7` (Akzentflächen).
 Abgeleitet für gut lesbare Texte: Ink `#1C2B36`, `#46606F`, `#3B6479`.
+Dunkelblau `#17324A` (`--navy`, aus Air Force Blue abgeleitet): Fläche des Leistungsbereichs, Snow darauf 12 : 1. Ruby auf Dunkelblau nur als Fläche oder dicke Linie, nie als Schrift.
 
 **Schrift:** Fira Sans (300/400/500/600), lokal gehostet als WOFF – keine Verbindung zu Google.
 Lizenz: SIL Open Font License 1.1 (https://openfontlicense.org).
@@ -64,11 +65,13 @@ Lizenz: SIL Open Font License 1.1 (https://openfontlicense.org).
 h1 5.61rem · h2 4.209rem · h3 3.157rem · h4 2.369rem · h5 1.777rem · h6 1.333rem · p 1rem · small 0.75rem · xs 0.563rem.
 
 **Zeichen:** § Paragraf · Σ Summe · € Euro · % Prozent · = Gleich · + Plus – jedes Teammitglied hat ein „Lieblingszeichen“.
-Weitere Elemente: Textmarker auf „Ruhe.“ sowie dezent auf „ruhig schlafen.“ (Zitat), „zuhören.“ (Team) und „Erst reden.“ (Kontakt), Leistungen ohne Zeichen in drei bündigen Spalten, Umzugs-Abschnitt mit der neuen Adresse in feiner Schrift.
+Weitere Elemente: Textmarker auf „Ruhe.“ sowie dezent auf „zuhören.“ (Team) und „Erst reden.“ (Kontakt), Umzugs-Abschnitt mit der neuen Adresse in feiner Schrift.
+
+**Leistungsbereich (`#leistungen`, seit 27.11.2026):** Leistungen, Arbeitsweise, Persönlich und Ablauf sind ein einziger dunkelblauer Bereich, damit man alles an einer Stelle liest. Reihenfolge: drei helle Karten (privat, Unternehmen, Vereine; Überschrift, Satz und Liste bündig, Haken in Ruby) · „Vom Schuhkarton zum Steuerbescheid.“ (vier Schritte, Nummern in Ruby-Kreisen) · „Die KI sortiert. Wir denken mit.“ (vier Eigenschaften, Datenschutz-Hinweis) · „Technik spart Zeit. Die nehmen wir uns für Sie.“ mit Beratungsbild · Zitat von Dr. Frank unter einem doppelten Ruby-Strich (Summenstrich = „unterm Strich“) mit Termin- und Telefon-Button (mobil ohne Buttons, die Leiste unten übernimmt). Das Zitat steht jetzt auf Dunkelblau und hat deshalb keinen Textmarker mehr. Der Anker `#arbeitsweise` zeigt weiter auf den Arbeitsweise-Teil; im Menü steht nur noch „Leistungen“. Teamwork-Bild und Gruppenfoto im Team-Bereich sind entfernt (Dateien liegen noch in `assets/img/`).
 
 **Logo:** Typografische Wortmarke in zwei Zeilen, „Dr. Andreas Frank“ und „Steuerberatung“, beide in Ruby, Fira Sans Light, gleich groß. Auf der Website steht sie 40 px vom linken Rand, bewusst außerhalb des Rasters (Vorbild: Identity Lab / Kanzlei Denk); Kopf- und Fußzeile gleich groß, bis 52 px Schriftgröße. Auf dunklem Grund steht die Wortmarke in Snow, weil Ruby auf Ink kaum lesbar ist (1,8 : 1). Dateien: `assets/logo.svg` (Ruby), `assets/logo-negativ.svg` (Snow), Schrift in Pfaden. Favicon, Apple-Touch-Icon und App-Icon zeigen weiter die Bildmarke „=“ (`assets/logo-zeichen.svg`).
 
-**Handlungsfarben:** Call to Action überall Ruby (Hover Ruby dunkel). Daneben das Telefon als Linien-Button mit Rand und Schrift in Ruby, beim Überfahren gefüllt; auf dunklem Grund (FAQ-Band) bleibt er weiß. Textmarker knallgelb (`--marker: #FFE600`), nur an vier Stellen auf hellem Grund: „Ruhe.“ im Hero (gezogen beim Laden), „ruhig schlafen.“, „zuhören.“ und „Erst reden.“ (gezogen, wenn sie beim Scrollen ins Bild kommen; main.js setzt `.is-marked`). Auf den blauen Flächen bewusst kein Gelb.
+**Handlungsfarben:** Call to Action überall Ruby (Hover Ruby dunkel). Daneben das Telefon als Linien-Button mit Rand und Schrift in Ruby, beim Überfahren gefüllt; auf dunklem Grund (FAQ-Band) bleibt er weiß. Textmarker knallgelb (`--marker: #FFE600`), nur an drei Stellen auf hellem Grund: „Ruhe.“ im Hero (gezogen beim Laden), „zuhören.“ und „Erst reden.“ (gezogen, wenn sie beim Scrollen ins Bild kommen; main.js setzt `.is-marked`). Auf den blauen Flächen bewusst kein Gelb.
 
 
 

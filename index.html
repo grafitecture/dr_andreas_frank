@@ -10,7 +10,7 @@
 <meta name="format-detection" content="telephone=no">
 <link rel="preload" href="assets/fonts/FiraSans-Light.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="assets/fonts/FiraSans-Regular.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=70c0dcc7">
+<link rel="stylesheet" href="assets/css/style.css?v=20732602">
 <script src="assets/js/early.js?v=de8ec58e"></script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -69,7 +69,6 @@
     <nav class="nav" id="hauptnavigation" aria-label="Hauptnavigation">
       <ul>
         <li><a href="#leistungen">Leistungen</a></li>
-        <li><a href="#arbeitsweise">Arbeitsweise</a></li>
         <li><a href="#team">Team</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
@@ -106,13 +105,14 @@
     </div>
   </section>
 
-  <!-- ===== Leistungen ===== -->
-  <section class="section" id="leistungen" aria-labelledby="leistungen-title">
+  <!-- ===== Leistungen: alles an einer Stelle – was wir tun, wie es abläuft, wie wir arbeiten, was unterm Strich steht ===== -->
+  <section class="section offer" id="leistungen" aria-labelledby="leistungen-title">
     <div class="wrap">
-      <div class="section-head">
+      <div class="offer__head">
         <h2 id="leistungen-title">Alles, was zählt.</h2>
         <p class="lead">Steuererklärung, Buchhaltung, Lohn, Abschluss – und die großen Fragen dazwischen. Für Privatpersonen, Unternehmen und Vereine in Mannheim und der Region.</p>
       </div>
+
       <div class="services">
         <article class="service">
           <h3>Für Sie privat</h3>
@@ -150,84 +150,74 @@
         </article>
       </div>
       <p class="services-foot">Etwas anderes auf dem Herzen? Weitere Leistungen gibt es auf Anfrage. <a href="#kontakt">Sprechen Sie uns an.</a></p>
-    </div>
-  </section>
 
-  <!-- ===== Arbeitsweise: KI + Mensch ===== -->
-  <section class="section method" id="arbeitsweise" aria-labelledby="arbeitsweise-title">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="arbeitsweise-title">Die KI sortiert. Wir denken mit.</h2>
-        <p class="lead">Wir arbeiten mit modernster Kanzleisoftware und künstlicher Intelligenz. Das macht uns schnell und genau. Beraten, entscheiden und Verantwortung übernehmen – das tun bei uns immer Menschen.</p>
+      <!-- Ablauf -->
+      <div class="offer__block" id="ablauf">
+        <div class="offer__sub">
+          <h3>Vom Schuhkarton zum Steuerbescheid.</h3>
+          <p class="lead">Vier Schritte, und der Rest ist unsere Aufgabe.</p>
+        </div>
+        <ol class="steps" role="list">
+          <li class="step"><span class="step__no" aria-hidden="true">1</span><h4>Kennenlernen</h4><p>Rufen Sie an oder schreiben Sie uns. Im ersten Gespräch klären wir, was Sie brauchen – telefonisch, per Video oder bei uns im Büro.</p></li>
+          <li class="step"><span class="step__no" aria-hidden="true">2</span><h4>Belege übermitteln</h4><p>Per App, Upload oder ganz klassisch auf Papier. Mit unserer Checkliste wissen Sie genau, was wir brauchen.</p></li>
+          <li class="step"><span class="step__no" aria-hidden="true">3</span><h4>Wir rechnen</h4><p>Digital, KI-gestützt und nach dem Vier-Augen-Prinzip. Wenn etwas fehlt, melden wir uns direkt bei Ihnen.</p></li>
+          <li class="step"><span class="step__no" aria-hidden="true">4</span><h4>Ergebnis besprechen</h4><p>Wir erklären Ihnen das Ergebnis, prüfen später den Bescheid und geben Ihnen Tipps für das nächste Jahr.</p></li>
+        </ol>
       </div>
-      <div class="principles">
-        <article class="principle">
-          <svg class="icon" aria-hidden="true"><use href="#i-lupe"/></svg>
-          <h3>Genau</h3>
-          <h4>Auf den Cent.</h4>
-          <p>Automatische Plausibilitätsprüfungen finden Unstimmigkeiten, bevor das Finanzamt sie findet. Und am Ende schaut immer ein zweites Paar Augen drauf.</p>
-        </article>
-        <article class="principle">
-          <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
-          <h3>Schnell</h3>
-          <h4>Kurze Wege, schnelle Antworten.</h4>
-          <p>Belege per App, automatische Buchungsvorschläge, digitale Bescheidprüfung: Was früher Wochen gedauert hat, ist heute oft in wenigen Tagen erledigt.</p>
-        </article>
-        <article class="principle">
-          <svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg>
-          <h3>Intelligent</h3>
-          <h4>Technik, die mitdenkt.</h4>
-          <p>KI liest Belege, ordnet Buchungen zu und weist auf Fristen und Sparpotenziale hin. So bleibt uns mehr Zeit für das, was Software nicht kann: Sie beraten.</p>
-        </article>
-        <article class="principle">
-          <svg class="icon" aria-hidden="true"><use href="#i-talk"/></svg>
-          <h3>Persönlich</h3>
-          <h4>Ein Mensch, der Ihren Namen kennt.</h4>
-          <p>Sie haben eine feste Ansprechperson – am Telefon, per Video oder bei uns in Käfertal. Ohne Hotline, ohne Warteschleife.</p>
-        </article>
-      </div>
-      <div class="method__media">
-        <img src="assets/img/teamwork-960.webp" srcset="assets/img/teamwork-960.webp 960w, assets/img/teamwork.webp 1600w" sizes="(max-width: 960px) 100vw, 55vw" width="1600" height="1062" alt="Zwei Kolleginnen und Kollegen am Stehtisch, sie lacht und hält ein Tablet, er zeigt auf ein Diagramm am Bildschirm" loading="lazy">
+
+      <!-- Arbeitsweise: KI + Mensch -->
+      <div class="offer__block offer__how" id="arbeitsweise">
+        <div class="offer__intro">
+          <h3>Die KI sortiert. Wir denken mit.</h3>
+          <p class="lead">Wir arbeiten mit modernster Kanzleisoftware und künstlicher Intelligenz. Das macht uns schnell und genau. Beraten, entscheiden und Verantwortung übernehmen – das tun bei uns immer Menschen.</p>
+        </div>
+        <ul class="pillars">
+          <li class="pillar">
+            <svg class="icon" aria-hidden="true"><use href="#i-lupe"/></svg>
+            <h4>Genau</h4>
+            <p><strong>Auf den Cent.</strong> Automatische Plausibilitätsprüfungen finden Unstimmigkeiten, bevor das Finanzamt sie findet. Und am Ende schaut immer ein zweites Paar Augen drauf.</p>
+          </li>
+          <li class="pillar">
+            <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
+            <h4>Schnell</h4>
+            <p><strong>Kurze Wege, schnelle Antworten.</strong> Belege per App, automatische Buchungsvorschläge, digitale Bescheidprüfung: Was früher Wochen gedauert hat, ist heute oft in wenigen Tagen erledigt.</p>
+          </li>
+          <li class="pillar">
+            <svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg>
+            <h4>Intelligent</h4>
+            <p><strong>Technik, die mitdenkt.</strong> KI liest Belege, ordnet Buchungen zu und weist auf Fristen und Sparpotenziale hin. So bleibt uns mehr Zeit für das, was Software nicht kann: Sie beraten.</p>
+          </li>
+          <li class="pillar">
+            <svg class="icon" aria-hidden="true"><use href="#i-talk"/></svg>
+            <h4>Persönlich</h4>
+            <p><strong>Ein Mensch, der Ihren Namen kennt.</strong> Sie haben eine feste Ansprechperson – am Telefon, per Video oder bei uns in Käfertal. Ohne Hotline, ohne Warteschleife.</p>
+          </li>
+        </ul>
         <div class="trust">
           <svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>
-          <div>
-            <h3>Ihre Daten bleiben vertraulich.</h3>
-            <p>Wir setzen KI nur in geprüften, DSGVO-konformen Systemen ein – mit Auftragsverarbeitungsvertrag und berufsrechtlicher Verschwiegenheitsverpflichtung nach §&nbsp;62a StBerG. Mandantendaten landen bei uns niemals in öffentlichen Chatbots.</p>
-          </div>
+          <p><strong>Ihre Daten bleiben vertraulich.</strong> Wir setzen KI nur in geprüften, DSGVO-konformen Systemen ein – mit Auftragsverarbeitungsvertrag und berufsrechtlicher Verschwiegenheitsverpflichtung nach §&nbsp;62a StBerG. Mandantendaten landen bei uns niemals in öffentlichen Chatbots.</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ===== Persönlich ===== -->
-  <section class="section" aria-labelledby="persoenlich-title">
-    <div class="wrap personal">
-      <img src="assets/img/beratung-960.webp" srcset="assets/img/beratung-960.webp 960w, assets/img/beratung.webp 1600w" sizes="(max-width: 960px) 100vw, 55vw" width="1600" height="1062" alt="Dr. Andreas Frank im Gespräch mit einem Paar an einem Holztisch, auf dem Unterlagen, ein Laptop und Kaffeetassen stehen" loading="lazy">
-      <div>
-        <h2 id="persoenlich-title">Technik spart Zeit. Die nehmen wir uns für Sie.</h2>
-        <p class="lead">Steuern sind persönlich. Deshalb hören wir erst zu und rechnen dann.</p>
-        <p>Hochzeit, Hauskauf, Gründung, Ruhestand oder Erbschaft: Wir schauen nicht nur auf das vergangene Jahr, sondern auf das, was vor Ihnen liegt. Und wir erklären es so, dass Sie es auch ohne Steuerstudium verstehen.</p>
+      <!-- Persönlich, darunter das Zitat als Summe unterm Strich -->
+      <div class="offer__block offer__personal">
+        <img src="assets/img/beratung-960.webp" srcset="assets/img/beratung-960.webp 960w, assets/img/beratung.webp 1600w" sizes="(max-width: 960px) 100vw, 52vw" width="1600" height="1062" alt="Dr. Andreas Frank im Gespräch mit einem Paar an einem Holztisch, auf dem Unterlagen, ein Laptop und Kaffeetassen stehen" loading="lazy">
+        <div>
+          <h3>Technik spart Zeit. Die nehmen wir uns für Sie.</h3>
+          <p class="lead">Steuern sind persönlich. Deshalb hören wir erst zu und rechnen dann.</p>
+          <p>Hochzeit, Hauskauf, Gründung, Ruhestand oder Erbschaft: Wir schauen nicht nur auf das vergangene Jahr, sondern auf das, was vor Ihnen liegt. Und wir erklären es so, dass Sie es auch ohne Steuerstudium verstehen.</p>
+        </div>
+      </div>
+      <div class="offer__total">
         <blockquote class="quote">
-          <p>„Eine gute Steuererklärung ist nicht die mit den meisten Paragrafen. Sondern die, nach der Sie <span class="marker">ruhig schlafen.</span>“</p>
+          <p>„Eine gute Steuererklärung ist nicht die mit den meisten Paragrafen. Sondern die, nach der Sie ruhig schlafen.“</p>
           <footer>Dr. Andreas Frank</footer>
         </blockquote>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#kontakt"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Kennenlernen vereinbaren</a>
+          <a class="btn btn--ghost" href="tel:+496218415299"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>0621 84 15 299</a>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== Ablauf ===== -->
-  <section class="section ledger-section" aria-labelledby="ablauf-title">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="ablauf-title">Vom Schuhkarton zum Steuerbescheid.</h2>
-        <p class="lead">Vier Schritte, und der Rest ist unsere Aufgabe.</p>
-      </div>
-      <ol class="steps" role="list">
-        <li class="step"><span class="step__no" aria-hidden="true">1</span><h3>Kennenlernen</h3><p>Rufen Sie an oder schreiben Sie uns. Im ersten Gespräch klären wir, was Sie brauchen – telefonisch, per Video oder bei uns im Büro.</p></li>
-        <li class="step"><span class="step__no" aria-hidden="true">2</span><h3>Belege übermitteln</h3><p>Per App, Upload oder ganz klassisch auf Papier. Mit unserer Checkliste wissen Sie genau, was wir brauchen.</p></li>
-        <li class="step"><span class="step__no" aria-hidden="true">3</span><h3>Wir rechnen</h3><p>Digital, KI-gestützt und nach dem Vier-Augen-Prinzip. Wenn etwas fehlt, melden wir uns direkt bei Ihnen.</p></li>
-        <li class="step"><span class="step__no" aria-hidden="true">4</span><h3>Ergebnis besprechen</h3><p>Wir erklären Ihnen das Ergebnis, prüfen später den Bescheid und geben Ihnen Tipps für das nächste Jahr.</p></li>
-      </ol>
     </div>
   </section>
 
@@ -238,9 +228,6 @@
         <h2 id="team-title">Sechs Menschen, die gern rechnen. Und noch lieber <span class="marker">zuhören.</span></h2>
         <p class="lead">Klein genug, dass jeder jeden kennt. Groß genug, dass immer jemand für Sie da ist. Jede und jeder bei uns hat übrigens ein Lieblingszeichen.</p>
       </div>
-      <figure class="team-photo">
-        <img src="assets/img/team-gruppe-960.webp" srcset="assets/img/team-gruppe-960.webp 960w, assets/img/team-gruppe.webp 1600w" sizes="(max-width: 1320px) 100vw, 1320px" width="1600" height="1062" alt="Das sechsköpfige Team der Kanzlei steht entspannt und lachend in einem hellen Büro" loading="lazy">
-      </figure>
       <div class="team">
         <article class="member">
           <div class="member__photo">

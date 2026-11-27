@@ -18,6 +18,7 @@
   --slate: #CED3DC;       /* Pale Slate – Linien, ruhige Flächen */
   --air: #4E8098;         /* Air Force Blue – Marke, große Flächen, Zeichen */
   --sky: #90C2E7;         /* Sky Blue – helle Akzentflächen */
+  --navy: #17324A;        /* Dunkelblau – Fläche des Leistungsbereichs (abgeleitet aus Air Force Blue; Snow darauf 12 : 1) */
   /* Abgeleitet (für lesbare Texte, WCAG AA) */
   --ink: #1C2B36;         /* Schrift auf hellen Flächen (13,7 : 1 auf Snow) */
   --ink-soft: #46606F;    /* Sekundärtext (6,3 : 1 auf Snow) */
@@ -25,7 +26,7 @@
   --ruby-deep: #86111A;   /* Hover für Ruby */
   --slate-soft: #EEF0F4;  /* sehr helle Fläche */
   --white: #FFFFFF;
-  --marker: #FFE600;      /* Textmarker – „Ruhe.“ und drei weitere Stellen auf hellem Grund */
+  --marker: #FFE600;      /* Textmarker – „Ruhe.“ und zwei weitere Stellen auf hellem Grund */
 
   /* Typo-Skala (Perfect Fourth 1.333) mit Clamping 360 → 1440 px */
   --fs-h1: clamp(2.75rem, 1.7967rem + 4.2370vw, 5.61rem);
@@ -192,7 +193,7 @@ body { padding-top: var(--header-full); }
 .hero__figure { grid-column: 2; grid-row: 1 / 3; align-self: center; }
 
 .hero__title { font-size: var(--fs-h1); font-weight: 300; line-height: 1.04; letter-spacing: -0.025em; max-width: 11.5ch; margin: 0 0 clamp(1.5rem, 3vw, 2.5rem); text-wrap: balance; }
-/* Textmarker: knallgelb, leicht schräg wie von Hand gezogen („Ruhe.“, Zitat, Team, Kontakt) */
+/* Textmarker: knallgelb, leicht schräg wie von Hand gezogen („Ruhe.“, Team, Kontakt) */
 .marker { position: relative; z-index: 0; display: inline-block; font-weight: 500; letter-spacing: -0.03em; }
 .marker::before {
   content: ""; position: absolute; z-index: -1; left: -.1em; right: -.12em; top: .16em; bottom: .02em;
@@ -211,59 +212,85 @@ body { padding-top: var(--header-full); }
 .section-head { display: grid; gap: 1.5rem; margin-bottom: clamp(3rem, 6vw, 5.5rem); max-width: 60rem; }
 .section-head p { margin: 0; }
 
-/* ---------- Leistungen ---------- */
-.services { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(2.5rem, 5vw, 5rem); }
-/* Überschrift, Satz und Liste stehen in allen drei Spalten auf einer Höhe */
+/* ---------- Leistungen: ein dunkelblauer Bereich mit allem, was zählt ----------
+   Reihenfolge: was wir tun (drei Karten) · Ablauf (vier Schritte) · Arbeitsweise (KI + Mensch) ·
+   Persönlich · Zitat als Summe unterm Strich (doppelter Strich in Ruby = Endsumme).
+   Farben: Dunkelblau als Fläche, Ruby für Haken, Schrittnummern, Summenstrich und Call to Action.
+   Ruby auf Dunkelblau nur als Fläche oder dicke Linie, nie als Schrift (zu wenig Kontrast). */
+.offer {
+  --on: rgba(252, 247, 248, .84);     /* Fließtext auf Dunkelblau (9 : 1) */
+  --rule: rgba(252, 247, 248, .2);    /* feine Linien auf Dunkelblau */
+  background: var(--navy); color: var(--snow);
+}
+.offer h2, .offer h3, .offer h4 { color: var(--snow); }
+.offer a:not(.btn) { color: var(--snow); }
+.offer a:not(.btn):hover { color: var(--snow); text-decoration-thickness: 2px; }
+.offer :focus-visible { outline-color: var(--snow); }  /* Ruby-Fokusrahmen wäre auf Dunkelblau kaum sichtbar */
+.offer ::selection { background: var(--snow); color: var(--navy); }
+
+.offer__head, .offer__sub { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem clamp(2.5rem, 6vw, 6rem); align-items: end; }
+.offer__head { margin-bottom: clamp(3rem, 6vw, 5rem); }
+.offer__sub { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.offer__head p, .offer__sub p { margin: 0; }
+.offer__sub h3, .offer__how h3, .offer__personal h3 { font-size: var(--fs-h3); }
+.offer .lead { color: var(--snow); }
+.offer__block { margin-top: clamp(3.5rem, 7vw, 6rem); padding-top: clamp(2.5rem, 5vw, 4.5rem); border-top: 1px solid var(--rule); }
+
+/* Was wir tun: drei helle Karten, Überschrift, Satz und Liste in allen drei auf einer Höhe */
+.services { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.5rem); }
 @media (min-width: 961px) {
   .services { row-gap: 0; }
   .service { display: grid; grid-row: span 3; grid-template-rows: subgrid; align-content: start; }
 }
-.service h3 { font-size: var(--fs-h4); margin-bottom: .75rem; }
+.service { background: var(--snow); color: var(--ink); border-radius: var(--radius-m); padding: clamp(1.75rem, 3vw, 2.5rem); }
+.offer .service h3 { color: var(--ink); font-size: var(--fs-h4); margin-bottom: .75rem; }
 .service > p { color: var(--ink-soft); margin-bottom: 1.5rem; }
 .service li { position: relative; padding: .7rem 0 .7rem 1.6rem; border-top: 1px solid var(--slate); }
-.service li:last-child { border-bottom: 1px solid var(--slate); }
 .service li::before { content: ""; position: absolute; left: 0; top: 1.2rem; width: .65rem; height: .35rem; border-left: 1.75px solid var(--ruby); border-bottom: 1.75px solid var(--ruby); transform: rotate(-45deg); }
-.services-foot { margin-top: clamp(3rem, 5vw, 4.5rem); font-size: var(--fs-h6); font-weight: 300; }
+.services-foot { margin: clamp(2rem, 4vw, 3rem) 0 0; font-size: var(--fs-h6); font-weight: 300; color: var(--on); max-width: none; }
 .services-foot a { font-weight: 400; }
 
-/* ---------- T-Konto ---------- */
-.ledger-section { background: var(--white); }
+/* Ablauf: echte Reihenfolge, deshalb Nummern – Ruby-Kreise auf einer feinen Linie */
+.steps { --gap: clamp(1.5rem, 3vw, 3rem); --dot: 3.25rem; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap); }
+.step { position: relative; }
+.step:not(:last-child)::before { content: ""; position: absolute; top: calc(var(--dot) / 2); left: calc(var(--dot) + .75rem); right: calc(.75rem - var(--gap)); height: 1px; background: var(--rule); }
+.step__no { display: grid; place-items: center; width: var(--dot); height: var(--dot); margin-bottom: 1.5rem; border-radius: 50%; background: var(--ruby); color: var(--snow); font-size: 1.375rem; font-weight: 400; line-height: 1; font-variant-numeric: tabular-nums; }
+.step h4 { font-size: var(--fs-h6); font-weight: 500; letter-spacing: 0; line-height: 1.3; margin-bottom: .6rem; }
+.step p { color: var(--on); margin: 0; }
 
-/* ---------- Arbeitsweise (große blaue Fläche) ---------- */
-.method { background: var(--air); color: var(--white); }
-.method .section-head h2 { color: var(--white); }
-.method .section-head .lead { font-size: var(--fs-h5); max-width: 40ch; color: var(--white); }
-.principles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.5rem); }
-.principle { background: var(--snow); color: var(--ink); border-radius: var(--radius-m); padding: clamp(1.75rem, 3vw, 2.75rem); display: grid; grid-template-columns: auto 1fr; gap: .25rem 1.5rem; align-items: start; }
-.principle .icon { grid-row: span 3; width: 3rem; height: 3rem; color: var(--air); stroke-width: 1.25; }
-.principle h3 { font-size: .875rem; font-weight: 500; color: var(--air-deep); }
-.principle h4 { font-size: var(--fs-h5); font-weight: 400; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: .75rem; }
-.principle p { margin: 0; color: var(--ink-soft); }
-.method__media { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: center; margin-top: clamp(3rem, 6vw, 5.5rem); }
-.method__media img { width: 100%; border-radius: var(--radius-l); aspect-ratio: 3 / 2; object-fit: cover; }
-.trust { display: grid; grid-template-columns: auto 1fr; gap: 1.25rem; align-items: start; }
-.trust .icon { width: 2.75rem; height: 2.75rem; stroke-width: 1.3; color: var(--sky); }
-.trust h3 { font-size: var(--fs-h5); font-weight: 500; margin-bottom: .75rem; color: var(--white); }
-.trust p { font-size: 1.0625rem; margin: 0; color: var(--white); }
+/* Arbeitsweise: links Haltung und Datenschutz, rechts vier Eigenschaften (mobil: Datenschutz zuletzt) */
+.offer__how { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-rows: auto 1fr; grid-template-areas: "intro pillars" "trust pillars"; gap: 2.5rem clamp(2.5rem, 6vw, 6rem); align-items: start; }
+.offer__intro { grid-area: intro; }
+.pillars { grid-area: pillars; }
+.trust { grid-area: trust; align-self: end; }
+.offer__how h3 { margin-bottom: 1.75rem; }
+.pillars { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem clamp(1.5rem, 3vw, 2.5rem); }
+.pillar { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .5rem 1rem; align-content: start; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+.pillar .icon { grid-row: span 2; width: 2.25rem; height: 2.25rem; stroke-width: 1.3; }
+.pillar h4 { font-size: var(--fs-h6); font-weight: 500; letter-spacing: 0; line-height: 1.3; }
+.pillar p { margin: 0; color: var(--on); }
+.pillar strong, .trust strong { font-weight: 500; color: var(--snow); }
+.trust { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem; align-items: start; padding: clamp(1.25rem, 2.5vw, 1.75rem); border-radius: var(--radius-m); background: rgba(252, 247, 248, .07); }
+.trust .icon { width: 2.25rem; height: 2.25rem; stroke-width: 1.3; }
+.trust p { margin: 0; color: var(--on); max-width: none; }
 
-/* ---------- Persönlich ---------- */
-.personal { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
-.personal img { width: 100%; aspect-ratio: 4 / 3.2; object-fit: cover; object-position: 60% 30%; border-radius: var(--radius-l); }
-.personal h2 { margin-bottom: 1.75rem; }
-.quote { margin: 2.5rem 0 0; padding-left: 1.5rem; border-left: 3px solid var(--sky); }
-.quote p { font-size: var(--fs-h6); font-weight: 300; font-style: normal; margin-bottom: .75rem; }
-.quote footer { font-size: .9375rem; color: var(--ink-soft); }
+/* Persönlich */
+.offer__personal { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 2.5rem clamp(2.5rem, 6vw, 6rem); align-items: center; }
+.offer__personal img { width: 100%; aspect-ratio: 4 / 3.2; object-fit: cover; object-position: 60% 30%; border-radius: var(--radius-l); }
+.offer__personal h3 { margin-bottom: 1.75rem; }
+.offer__personal .lead { margin-bottom: 1.25rem; }
+.offer__personal p:not(.lead) { color: var(--on); margin: 0; }
 
-/* ---------- Ablauf (echte Reihenfolge → Nummern) ---------- */
-.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 3rem); counter-reset: step; }
-.step { border-top: 1px solid var(--ink); padding-top: 1.5rem; }
-.step__no { display: block; font-size: var(--fs-h3); font-weight: 300; color: var(--air); line-height: 1; margin-bottom: 1.25rem; font-variant-numeric: tabular-nums; }
-.step h3 { font-size: var(--fs-h6); font-weight: 500; margin-bottom: .6rem; }
-.step p { color: var(--ink-soft); margin: 0; }
+/* Zitat: die Summe unterm Strich – doppelter Strich in Ruby über die ganze Breite */
+.offer__total { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2.5rem clamp(2.5rem, 6vw, 6rem); align-items: end; margin-top: clamp(3.5rem, 7vw, 6rem); padding-top: clamp(2.5rem, 5vw, 4rem); border-top: 10px double var(--ruby); }
+.quote { margin: 0; }
+.quote p { font-size: var(--fs-h3); font-weight: 300; line-height: 1.15; letter-spacing: -0.015em; max-width: 24ch; margin-bottom: 1.5rem; color: var(--snow); }
+.quote footer { font-size: 1rem; font-weight: 500; color: var(--on); }
+.offer__total .btn-row { justify-content: flex-end; }
+.offer .btn--ghost { color: var(--snow); border-color: var(--snow); }
+.offer .btn--ghost:hover { background: var(--snow); color: var(--navy); }
 
 /* ---------- Team ---------- */
-.team-photo { margin: 0 0 clamp(3rem, 6vw, 5rem); }
-.team-photo img { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; object-position: 50% 30%; border-radius: var(--radius-l); }
 .team { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(2rem, 4vw, 3.5rem) clamp(1.25rem, 3vw, 2.5rem); }
 .member { position: relative; }
 .member__photo { position: relative; margin-bottom: 1.25rem; }
@@ -366,7 +393,7 @@ fieldset.field legend { padding: 0; margin-bottom: .5rem; }
   .action-bar .btn--light { background: transparent; color: var(--snow); }
   body { padding-bottom: 5.5rem; }
   /* Mobil übernimmt die Leiste unten Termin und Anruf – im Hero keine Buttons */
-  .hero .btn-row { display: none; }
+  .hero .btn-row, .offer__total .btn-row { display: none; }
   .hero__intro .lead { margin-bottom: 0; }
   .hero { --bar-space: calc(max(.75rem, env(safe-area-inset-bottom)) + 3.8rem + 1rem); }  /* Leiste + Luft */
 }
@@ -440,10 +467,15 @@ mark.todo { background: #FFF1B8; color: var(--ink); padding: 0 .2em; border-radi
 @media (max-width: 1100px) {
   .footer__grid { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 3rem; }
+  .step:nth-child(2n)::before { display: none; }  /* Linie nur innerhalb einer Zeile */
+  .offer__total { grid-template-columns: 1fr; }
+  .offer__total .btn-row { justify-content: flex-start; }
+  .offer__how { grid-template-columns: 1fr; grid-template-rows: none; grid-template-areas: "intro" "pillars" "trust"; }
 }
 @media (max-width: 960px) {
   .move__address { justify-self: start; }
-  .hero__grid, .personal, .move__grid, .career, .contact__grid, .method__media { grid-template-columns: 1fr; }
+  .hero__grid, .move__grid, .career, .contact__grid, .offer__head, .offer__sub, .offer__personal, .offer__total { grid-template-columns: 1fr; }
+  .offer__total .btn-row { justify-content: flex-start; }
   /* Mobil: erst das Bild, dann die Headline – zusammen genau ein Bildschirm hoch.
      Das Bild nimmt sich die Höhe, die neben Kopfzeile, Headline und Aktionsleiste übrig bleibt. */
   .hero { padding-top: var(--hero-top); }
@@ -467,14 +499,17 @@ mark.todo { background: #FFF1B8; color: var(--ink); padding: 0 .2em; border-radi
   .cta-band { grid-template-columns: 1fr; }
 }
 @media (max-width: 680px) {
-  .principles { grid-template-columns: 1fr; }
-  .principle { grid-template-columns: 1fr; }
-  .principle .icon { grid-row: auto; margin-bottom: .75rem; }
+  .pillars { grid-template-columns: 1fr; }
   .team { grid-template-columns: 1fr; }
-  .steps { grid-template-columns: 1fr; }
+  /* Ablauf mobil senkrecht: Nummer links, Linie läuft nach unten zum nächsten Schritt */
+  .steps { grid-template-columns: 1fr; row-gap: 2.25rem; }
+  .step { display: grid; grid-template-columns: var(--dot) minmax(0, 1fr); column-gap: 1.25rem; }
+  .step__no { grid-row: span 2; margin: 0; }
+  .step::before, .step:nth-child(2n)::before { display: block; }
+  .step:not(:last-child)::before { top: calc(var(--dot) + .5rem); bottom: calc(.5rem - 2.25rem); left: calc(var(--dot) / 2); right: auto; width: 1px; height: auto; }
+  .step:last-child::before { display: none; }
   .field-row { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr; }
-  .team-photo img { aspect-ratio: 4 / 3; }
   .faq-item__body { padding-right: 0; }
 }
 
